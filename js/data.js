@@ -95,7 +95,7 @@ var products = [
     ,{
         id: 'B0004',
         tag: 'cat',
-        name: '貓抓板',
+        name: '貓跳台',
         picSrc: 'pic/cat/p-4.png',
         new: false,
         hot: true,
@@ -165,7 +165,7 @@ var products = [
     ,{
         id: 'B0007',
         tag: 'cat',
-        name: '絨毛玩具',
+        name: '絨貓玩具',
         picSrc: 'pic/cat/p-7.png',
         new: true,
         hot: false,
