@@ -1,0 +1,205 @@
+body{
+    font-family:  -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft JhengHei", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background-color: $lightBg;
+}
+ul{
+    list-style: none;
+    padding-left: 0;
+}
+a{
+    display: block;
+}
+// 修改input預設顯示文字顏色
+body{
+    ::placeholder { /* CSS 3 標準 */
+        color: $grey;
+    }
+    ::-webkit-input-placeholder { /* Chrome, Safari */
+        color: $grey;
+    }
+    :-ms-input-placeholder { /* IE 10+ */
+        color: $grey;
+    }
+    ::-moz-placeholder { /* Firefox 19+ */
+        color: $grey;
+        opacity: 1;
+    }
+    transition: all .5s ease;
+}
+.navbar{
+    .hamBtn{
+        color: $primaryOrange;
+        font-size: $font-xl;
+    }
+    .m-logo{
+        text-align: center;
+    }
+    .logo img, .m-logo img{
+        height: 50px;
+    }
+    .m-cart{
+        text-align: end;
+    }
+    .m-cart span, .navbar-item{
+        color: $primaryOrange;
+        font-size: $font-s;
+        font-weight: bold;
+        position: relative;
+    }
+    .active::after{
+        content: '';
+        position: absolute;
+        height: 4px;
+        width: 100%;
+        bottom: -4px;
+        left: 0;
+        background: $primaryOrange;
+    }
+    .navbar-item a:hover::after{
+        content: '';
+        position: absolute;
+        height: 4px;
+        width: 100%;
+        bottom: -4px;
+        left: 0;
+        background: $primaryOrange;
+    }
+}
+.navbar-nav{
+    display: flex;
+}
+.contactbar{
+    padding: 30px;
+    background-color: $primaryOrange;
+    .link{
+        display: flex;
+        align-items: center;
+        img{
+            width: 40px;
+            margin-right: 16px;
+            transition: all .2s ease;
+            &:hover{
+                transform: scale(1.1);
+            }
+        }
+    }
+    .title{
+        display: flex;
+        justify-content: end;
+        align-items: center;
+        flex-wrap: wrap;
+        font-size: $font-l;
+        color: $lightOrange;
+        font-weight: bold;
+        span{
+            width: 100%;
+            font-size: $font-s;
+            text-align: end;
+        }
+    }
+    .mailbar{
+        display: flex;
+        height: 60px;
+        background: $lightOrange;
+        position: relative;
+        .mailIcon{
+            display: flex;
+            // justify-content: center;
+            align-items: center;
+            width: 42px;
+            font-size: $font-xl;
+            color: $primaryOrange;
+        }
+        .email{
+            padding: 8px;
+            width: calc( 100% - 90px);
+            color: $primaryOrange;
+            font-weight: bold;
+            font-size: $font-m;
+            background-color: transparent;
+            border: 0;
+        }
+        a{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            right: 0;
+            height: 100%;
+            width: 60px;
+            font-size: $font-xl;
+            background-color: $secondary;
+            border-right: 20px;
+            color: $lightOrange;
+            transition: all .2s ease;
+        }
+        a:hover{
+            transform: scale(1.1);
+            color: $lightOrange;
+        }
+        .submit i{
+            pointer-events: none;
+        }
+    }
+}
+.footer{
+    background: $lightOrange;
+    .companybar{
+        justify-content: space-between;
+        align-items: center;
+        color: $primaryOrange;
+        font-weight: bold;
+    }
+    img{
+        // margin-top: 30px;
+        height: 50px;
+    }
+    .company-info{
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+    p{
+        text-align: end;
+        margin-bottom: 0;
+    }
+}
+
+
+
+@media (max-width: 768px) {
+    .navbar-nav{
+        display: none;
+    }
+    .nav-toggle{
+        display: flex;
+    }
+    .mailbar{
+        margin-top: 16px;
+    }
+    .companybar{
+        img{
+            margin-top: 30px;
+        }
+        p{
+            text-align: start;
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    .contactbar{
+        .title{
+            justify-content: center;
+            span{
+                width: auto;
+            }
+        }
+    }
+    .navbar{
+        .m-logo img{
+            height: 35px;
+        }
+    }
+}
+// @media (max-width: 425px) {
+// }

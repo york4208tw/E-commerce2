@@ -1,0 +1,214 @@
+.carousel{
+    border-top: 8px $primaryOrange solid;
+    border-bottom: 8px $primaryOrange solid;
+}
+.category-list{
+    display: flex;
+    flex-direction: column;
+    border-bottom: 2px $primaryOrange solid;
+    li{
+        height: 60px;
+        border: 2px $primaryOrange solid;
+        border-bottom: 1px;
+        span{
+            margin-left: 4px;
+            pointer-events: none;
+        }
+    }
+    a{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        font-size: $font-l;
+        font-weight: bold;
+        transition: all .1s ease;
+    }
+    a:hover{
+        background-color: $lightOrange;
+        font-size: calc($font-l + 2px);
+    }
+    .title{
+        background-color: $primaryOrange;
+        color: $lightOrange;
+        pointer-events: none;
+    }
+}
+.product{
+    &-list{
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+
+    }
+    &-item{
+        width: 30%;
+        margin: 0 0 16px 8px;
+        position: relative;
+    }
+    .onsale{
+        position: absolute;
+        top: 5%;
+        left: -4px;
+        padding: 8px 16px;
+        color: $lightOrange;
+        font-weight: bold;
+        background: $primaryOrange;
+        border-radius: 0 20px 20px 0;
+        border: 3px $lightOrange solid;
+        border-left:0;
+        pointer-events: none;
+    }
+    .faver{
+        position: absolute;
+        top: 38px;
+        right: 38px;
+        transform: translate(50%, -50%);
+        transition: all .2s ease;
+        &:hover{
+            top: 35px;
+        }
+    }
+    #faver-select{
+        background-image: url("../pic/icon/isfaver_big.png");
+        background-repeat: no-repeat;
+    }
+    &-pic{
+        width: 100%;
+        border: 3px $primaryOrange solid;
+    }
+    .name, .price, .cartBtn{
+        padding: 16px 0;
+        color: $primaryOrange;
+        font-size: $font-m;
+        font-weight: bold;
+        text-align: center;
+        border: 2px $primaryOrange solid;
+        border-top: none;
+    }
+    &-info{
+        display: flex;
+        flex-wrap: wrap;
+        .name{
+            width: 55%;
+            border-right: 0;
+        }
+        .price{
+            width: 45%;
+        }
+    }
+    .cartBtn{
+        width: 100%;
+        color: $lightOrange;
+        background: $primaryOrange;
+        transition: all .2s ease;
+        &:hover{
+            transform: scale(1.05);
+        }
+    }
+
+    .page-btn{
+        display: flex;
+        justify-content: end;
+        border-right: 2px $lightOrange solid;
+        li{
+            width: 60px;
+            height: 60px;
+            font-size: $font-m;
+            font-weight: bold;
+            border: 2px $lightOrange solid;
+            border-right: none;
+        }
+        a{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            transition: all .2s ease;
+            &:hover{
+                color: $lightOrange;
+                background: $primaryOrange;
+            }
+        }
+        i{
+            pointer-events: none;
+        }
+    }
+}
+
+
+
+
+@media (max-width: 992px) {
+    .category-list{
+        flex-direction: row;
+        flex-wrap: wrap;
+        border-left: 3px $primaryOrange solid;
+        li{
+            width: 50%;
+            height: 50px;
+            border-left: 1px;
+        }
+        .list-title{
+            width: 100%;
+            height: 30px;
+
+        }
+    }
+    .product{
+        &-item{
+            margin-left: 0;
+        }
+    }
+}
+@media (max-width: 768px) {
+    .product{
+        &-item{
+            width: 49%;
+        }
+    }
+}
+@media (max-width: 576px) {
+    .banner{
+        display: none;
+    }
+    .category-list{
+        a{
+            font-size: $font-m;
+        }
+    }
+    .product{
+        .onsale{
+            left: 0;
+        }
+    }
+}
+@media (max-width: 425px) {
+    .category-list{
+        a{
+            font-size: $font-s;
+        }
+    }
+    .product{
+        .onsale{
+            top:0;
+            width: 100%;
+            border: none;
+            border-radius: 0;
+            text-align: center;
+            padding: 2px 0;
+        }
+        .faver{
+            top: 50px;
+            right: 30px;
+            &:hover{
+                top: 45px;
+            }
+        }
+        .name, .price{
+            padding: 8px 0;
+            font-size: $font-s;
+        }
+    }
+}
