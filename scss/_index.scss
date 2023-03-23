@@ -110,7 +110,7 @@
         background: $secondary;
     }
 
-    .page-btn{
+    .pagebtns{
         display: flex;
         justify-content: end;
         border-right: 2px $lightOrange solid;
@@ -133,6 +133,11 @@
                 color: $lightOrange;
                 background: $primaryOrange;
             }
+        }
+        .active{
+            color: $lightOrange;
+            background: $primaryOrange;
+            pointer-events: none;
         }
         i{
             pointer-events: none;
@@ -179,6 +184,9 @@
     .category-list{
         a{
             font-size: $font-m;
+            &:hover{
+                font-size: $font-l;
+            }
         }
     }
     .product{
@@ -191,6 +199,9 @@
     .category-list{
         a{
             font-size: $font-s;
+            &:hover{
+                font-size: $font-m;
+            }
         }
     }
     .product{

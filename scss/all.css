@@ -316,12 +316,12 @@ body ::-moz-placeholder { /* Firefox 19+ */
 .product #cart-select {
   background: #d02121;
 }
-.product .page-btn {
+.product .pagebtns {
   display: flex;
   justify-content: end;
   border-right: 2px #ffe8c5 solid;
 }
-.product .page-btn li {
+.product .pagebtns li {
   width: 60px;
   height: 60px;
   font-size: 1.25rem;
@@ -329,7 +329,7 @@ body ::-moz-placeholder { /* Firefox 19+ */
   border: 2px #ffe8c5 solid;
   border-right: none;
 }
-.product .page-btn a {
+.product .pagebtns a {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -337,11 +337,16 @@ body ::-moz-placeholder { /* Firefox 19+ */
   height: 100%;
   transition: all 0.2s ease;
 }
-.product .page-btn a:hover {
+.product .pagebtns a:hover {
   color: #ffe8c5;
   background: #dc8605;
 }
-.product .page-btn i {
+.product .pagebtns .active {
+  color: #ffe8c5;
+  background: #dc8605;
+  pointer-events: none;
+}
+.product .pagebtns i {
   pointer-events: none;
 }
 
@@ -376,6 +381,9 @@ body ::-moz-placeholder { /* Firefox 19+ */
   .category-list a {
     font-size: 1.25rem;
   }
+  .category-list a:hover {
+    font-size: 1.5rem;
+  }
   .product .onsale {
     left: 0;
   }
@@ -383,6 +391,9 @@ body ::-moz-placeholder { /* Firefox 19+ */
 @media (max-width: 425px) {
   .category-list a {
     font-size: 1rem;
+  }
+  .category-list a:hover {
+    font-size: 1.25rem;
   }
   .product .onsale {
     top: 0;

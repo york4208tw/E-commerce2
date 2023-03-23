@@ -14,7 +14,7 @@ mailBar.addEventListener('click', btnAction, false);
 //網頁預設資訊
 var productLen = products.length;
 var productHref = '#'; //預覽用產品頁
-var productForPage = 9; // 首頁：產品一頁顯示數量
+var productForPage = 6; // 首頁：產品一頁顯示數量
 
 //按鈕動作
 function btnAction(e){
@@ -50,6 +50,18 @@ function btnAction(e){
             e.preventDefault();
             creatProductList(newArr,1);
             break;
+        case 'lowPricebtn':
+            e.preventDefault();
+            creatProductList(lowPriceArr,1);
+            break;
+        case 'myFaverbtn':
+            e.preventDefault();
+            if ( faverArr.length !== 0 ){
+                creatProductList(faverArr,1);
+            }else{
+                alert('您還沒有最愛的商品唷!\n快找個商品按按看上面的愛心吧～');
+            }
+            break;
 
         //Product清單
         case 'product-pic':
@@ -61,9 +73,22 @@ function btnAction(e){
             e.preventDefault();
             cartCheck(e.target.dataset.proid, e.target.dataset.showid);
             break;
+        case 'pagebtn':
+            e.preventDefault();
+            pageAction(e.target.textContent);
+            break;
+        case 'prebtn':
+            e.preventDefault();
+            pageAction(e.target.className);
+            break;
+        case 'nextbtn':
+            e.preventDefault();
+            pageAction(e.target.className);
+            break;
 
         default:
-            console.log(e.target.innerHTML);
+            //console.log(e.target.innerHTML);
+            console.log(e.target.className);
     }
 }
 

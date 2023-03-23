@@ -1,4 +1,4 @@
-// //商品輸出
+categoryNum// //商品輸出
 // var prodList = document.querySelector('.product-list');
 
 // var categoryList = document.querySelector('.category-list');
@@ -174,42 +174,6 @@ function faverCheck(prodId){
 }
 
 
-//allProdCheck 將index位置push至 allProdArr[] 內
-function allProdCheck(e){
-    for ( o=0; o<prodLen; o++ ){
-        if ( typeof(products[o].id) == 'string'){
-            allProdArr.push(o);
-        }
-    }
-    categoryNum[0].textContent = '('+ allProdArr.length +')';
-}
-//saleCheck 將index位置push至 saleArr[] 內
-function saleCheck(e){
-    for ( o=0; o<prodLen; o++ ){
-        if ( products[o].sale !== 1){
-            saleArr.push(o);
-        }
-    }
-    categoryNum[1].textContent = '('+ saleArr.length +')';
-}
-//hotCheck 將index位置push至 hotArr[] 內
-function hotCheck(e){
-    for ( o=0; o<prodLen; o++ ){
-        if ( products[o].hot == true){
-            hotArr.push(o);
-        }
-    }
-    categoryNum[2].textContent = '('+ hotArr.length +')';
-}
-//newCheck 將index位置push至 newArr[] 內
-function newCheck(e){
-    for ( o=0; o<prodLen; o++ ){
-        if ( products[o].new == true){
-            newArr.push(o);
-        }
-    }
-    categoryNum[3].textContent = '('+ newArr.length +')';
-}
 
 
 function category(e){
