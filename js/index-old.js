@@ -1,36 +1,34 @@
-//商品輸出
-var prodList = document.querySelector('.product-list');
+// //商品輸出
+// var prodList = document.querySelector('.product-list');
 
-var categoryList = document.querySelector('.category-list');
-var categoryNum = document.querySelectorAll('.category-list span');
-var cartNum =  document.querySelectorAll('.navbar span');
-var appLink = document.querySelector('.contactbar .link');
+// var categoryList = document.querySelector('.category-list');
+// var categoryNum = document.querySelectorAll('.category-list span');
+// var cartNum =  document.querySelectorAll('.navbar span');
+// var appLink = document.querySelector('.contactbar .link');
 
-var prodLen = products.length;
+// var prodLen = products.length;
 var prodStr = '';
-var allProdArr = [];
-var saleArr = [];
-var hotArr = [];
-var newArr = [];
-var saleArr = [];
-var showArr = [];
+// var allProdArr = [];
+// var saleArr = [];
+// var hotArr = [];
+// var newArr = [];
+// var saleArr = [];
+// var showArr = [];
 
-var prodPreHref = 'A0001.html'; //預設 產品頁 預覽 連結
-var pageItemNum = 9; //預設 一頁li數量
 
-categoryList.addEventListener('click', category, false);
-appLink.addEventListener('click', linkAlert ,false);
+// categoryList.addEventListener('click', category, false);
+// appLink.addEventListener('click', linkAlert ,false);
 
 //停止a連結的預設觸發行為
-var prodArea = document.querySelector('.product');
-var mailbar =  document.querySelector('.mailbar');
-prodArea.addEventListener('click', preDef,false);
-mailbar.addEventListener('click', preDef,false);
+// var prodArea = document.querySelector('.product');
+// var mailbar =  document.querySelector('.mailbar');
+// prodArea.addEventListener('click', preDef,false);
+// mailbar.addEventListener('click', preDef,false);
 
-var faver = document.querySelectorAll('.faver');
-var faverArr = JSON.parse(localStorage.getItem('faverId')) || [] ;
+// var faver = document.querySelectorAll('.faver');
+// var faverArr = JSON.parse(localStorage.getItem('faverId')) || [] ;
 
-var cartArr = JSON.parse(localStorage.getItem('cartId')) || [] ;
+// var cartArr = JSON.parse(localStorage.getItem('cartId')) || [] ;
 
 cartNum[0].textContent = cartArr.length;
 cartNum[1].textContent = cartArr.length;
@@ -251,14 +249,14 @@ function preDef(e){
             cartBtnIn(e.target.dataset.index);
             break;
 
-        case 'preDef':
+        case 'preDef': //頁數按鈕
             e.preventDefault();
             break;
 
-        case 'submit':
-            e.preventDefault();
-            mailto();
-            break;
+        // case 'submit':
+        //     e.preventDefault();
+        //     mailto();
+        //     break;
     }
 }
 
@@ -315,18 +313,18 @@ function pageCheck(Arr){
     return(pageNum);
 }
 
-function mailto(){
-    var email = document.querySelector('.email');
-    if ( email.value !== ''){
-        if ( confirm( '是否使用 ' + email.value + ' 帳號訂閱我們?' ) == true){
-            alert( '已使用 ' + email.value + ' 帳號訂閱！'  );
-            email.value = '';
-        }
-    }
-}
+// function mailto(){
+//     var email = document.querySelector('.email');
+//     if ( email.value !== ''){
+//         if ( confirm( '是否使用 ' + email.value + ' 帳號訂閱我們?' ) == true){
+//             alert( '已使用 ' + email.value + ' 帳號訂閱！'  );
+//             email.value = '';
+//         }
+//     }
+// }
 
-function linkAlert(e){
-    if ( e.target.nodeName =='IMG' ){
-        alert('這只是個範例網站，沒辦法跳轉到 ' + e.target.alt + ' 喔~')
-    }
-}
+// function linkAlert(e){
+//     if ( e.target.nodeName =='IMG' ){
+//         alert('這只是個範例網站，沒辦法跳轉到 ' + e.target.alt + ' 喔~')
+//     }
+// }

@@ -40,7 +40,7 @@ body ::-moz-placeholder { /* Firefox 19+ */
   opacity: 1;
 }
 
-.navbar .hamBtn {
+.navbar .hambtn {
   color: #dc8605;
   font-size: 2rem;
 }
@@ -284,7 +284,7 @@ body ::-moz-placeholder { /* Firefox 19+ */
   width: 100%;
   border: 3px #dc8605 solid;
 }
-.product .name, .product .price, .product .cartBtn {
+.product .name, .product .price, .product .cartbtn {
   padding: 16px 0;
   color: #dc8605;
   font-size: 1.25rem;
@@ -304,14 +304,17 @@ body ::-moz-placeholder { /* Firefox 19+ */
 .product-info .price {
   width: 45%;
 }
-.product .cartBtn {
+.product .cartbtn {
   width: 100%;
   color: #ffe8c5;
   background: #dc8605;
   transition: all 0.2s ease;
 }
-.product .cartBtn:hover {
+.product .cartbtn:hover {
   transform: scale(1.05);
+}
+.product #cart-select {
+  background: #d02121;
 }
 .product .page-btn {
   display: flex;

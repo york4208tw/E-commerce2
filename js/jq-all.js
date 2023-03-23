@@ -1,8 +1,13 @@
 $(document).ready(function(){
 
     //hambtn
-    $('.hamBtn i').click(function (e) { 
+    $('.hambtn i').click(function (e) { 
         $( this ).toggleClass('bx-x');
         $( '.navbar-nav' ).toggleClass('nav-toggle');
     });
+
+    //faver
+    // $('.faver').click(function (e) { 
+    //     $( this ).toggleClass('faver-select');
+    // });
 });
