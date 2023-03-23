@@ -6,15 +6,19 @@ var faverArr = JSON.parse(localStorage.getItem('faverId')) || [] ;
 var cartNum = document.querySelectorAll('.navbar span'); //購物車數量
 var appLink = document.querySelector('.contactbar .link'); //fb & line
 var mailBar = document.querySelector('.mailbar');
+var toTop = document.querySelector('.totop');
 
 //監聽
+window.addEventListener('scroll', toTopAction, false);
 appLink.addEventListener('click', btnAction, false);
 mailBar.addEventListener('click', btnAction, false);
 
 //網頁預設資訊
 var productLen = products.length;
 var productHref = '#'; //預覽用產品頁
-var productForPage = 6; // 首頁：產品一頁顯示數量
+var productForPage = 6; // 產品一頁顯示數量
+var productForRow = 3; // 產品一列顯示數量，以目前版型請勿更動
+var isOpen = false; //分類表單收合狀態
 
 //按鈕動作
 function btnAction(e){
@@ -62,6 +66,18 @@ function btnAction(e){
                 alert('您還沒有最愛的商品唷!\n快找個商品按按看上面的愛心吧～');
             }
             break;
+        case 'category-list':
+            var toggle = document.querySelectorAll('.hide-item');
+            if ( isOpen == false ){
+                toggle[0].setAttribute('id','open-item');
+                toggle[1].setAttribute('id','open-item');
+                isOpen = true;
+            }else{
+                toggle[0].setAttribute('id','');
+                toggle[1].setAttribute('id','');
+                isOpen = false;
+            }
+            break;
 
         //Product清單
         case 'product-pic':
@@ -69,8 +85,12 @@ function btnAction(e){
         case 'faver':
             faverCheck(e.target.dataset.proid, e.target.dataset.showid);
             break;
+        case 'faver faver-nosale':
+            faverCheck(e.target.dataset.proid, e.target.dataset.showid);
+            break;
         case 'cartbtn':
             e.preventDefault();
+            console.log(e);
             cartCheck(e.target.dataset.proid, e.target.dataset.showid);
             break;
         case 'pagebtn':
@@ -88,7 +108,8 @@ function btnAction(e){
 
         default:
             //console.log(e.target.innerHTML);
-            console.log(e.target.className);
+            // console.log(e.target.className);
+            console.log(e);
     }
 }
 
@@ -133,5 +154,14 @@ function setSmToLg(Arr,ArrOrStr){
         case 'Str':
             var string = JSON.stringify(smToLgArr);
             return(string);
+    }
+}
+
+//toTop
+function toTopAction(e){
+    if( window.scrollY < 400){
+        toTop.style.transform = 'translateX(100px)';
+    }else{
+        toTop.style.transform = 'translateX(0px)';
     }
 }

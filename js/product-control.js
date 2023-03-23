@@ -22,12 +22,10 @@ var lowPriceArr = [];
 var showArr = [];
 var nowPage = 1;
 
-//預先 更新 函數
+//預先 函數更新
 categoryCheck();
 updateNum();
-creatProductList(allArr,2);
-
-
+creatProductList(allArr,1);
 
 
 //將商品依類別分類至各 Arr
@@ -52,13 +50,13 @@ function categoryCheck(){
 }
 
 //產生商品清單
-function creatProductList(categoryName,pageNum){
+function creatProductList(categoryArr,pageNum){
     
     //頁數控制
     var pageStr = '';
-    var num = pageCount(categoryName);
+    var num = pageCount(categoryArr);
     var newStartNum = 0;
-    var Len = categoryName.length;
+    var Len = categoryArr.length;
     if( num > pageNum ){
         newStartNum = (pageNum-1) * productForPage;
         Len = pageNum * productForPage;
@@ -84,43 +82,54 @@ function creatProductList(categoryName,pageNum){
         str += '<li class="product-item">';
 
         //輸出 優惠資訊
+        var isSale = false;
         for ( s=0; s<saleArr.length; s++ ){
-            if( saleArr[s] ==  categoryName[i] ){
-                str += '<div class="onsale">本日 '+ products[categoryName[i]].sale*10 +' 折優惠</div>';
+            if( saleArr[s] ==  categoryArr[i] ){
+                str += '<div class="onsale">本日 '+ products[categoryArr[i]].sale*10 +' 折優惠</div>';
+                isSale = true;
             }
         }
-        var pic = products[categoryName[i]].picSrc;
-        str += '<img data-proid="'+ categoryName[i] +'" data-showid="' + (i - (pageNum-1)*productForPage ) + '" id="' ;
+        var pic = products[categoryArr[i]].picSrc;
+        str += '<img data-proid="'+ categoryArr[i] +'" data-showid="' + (i - (pageNum-1)*productForPage ) + '" id="' ;
 
         //輸出 最愛資訊
         for ( f=0; f<faverArr.length; f++ ){
-            if( faverArr[f] ==  categoryName[i] ){
+            if( faverArr[f] ==  categoryArr[i] ){
                 str += 'faver-select';;
             }
         }
-        str += '" class="faver" src="pic/icon/faver_big.png" alt="faver"><a href="'+ productHref +'"><img class="product-pic" src="'+ pic +'" alt="產品圖片"></a>';
+        str += '" class="faver';
+        if ( isSale == false ){
+            str += ' faver-nosale';
+        }
+        str += '" src="pic/icon/faver_big.png" alt="faver"><a href="'+ productHref +'"><img class="product-pic" src="'+ pic +'" alt="產品圖片"></a>';
         //輸出 文字資訊
-        var name =  products[categoryName[i]].name;
-        var price =  products[categoryName[i]].price;
+        var name =  products[categoryArr[i]].name;
+        var price =  products[categoryArr[i]].price;
         str += '<div class="product-info"><a class="name" href="'+ productHref +'">'+ name +'</a><div class="price">NT$ '+ price +'</div></div><a href="#"><div id="';
+        
         //輸出 購物車資訊
         var isCart = false;
         for ( c=0; c<cartArr.length; c++ ){
-            if( cartArr[c] ==  categoryName[i] ){
+            if( cartArr[c] ==  categoryArr[i] ){
                 str += 'cart-select';
                 isCart = true;
             }
         }
-
-        str +='" class="cartbtn" data-proid="'+ categoryName[i] +'" data-showid="'+ (i - (pageNum-1)*9 ) +'">';
-
+        str +='" class="cartbtn" data-proid="'+ categoryArr[i] +'" data-showid="'+ (i - (pageNum-1)*productForPage ) +'">';
         if ( isCart == true ){
-            str +='已';
+            str +='已加入購物車<span class="material-symbols-outlined">pets</span></div></a></li>';
+        }else{
+            str +='已加入購物車</div></a></li>';
         }
-        str += '加入購物車</div></a></li>';
     }
+    var overNum = categoryArr.length % productForPage;
+    if ( overNum % productForRow == 2 ){
+        str += '<li class="product-item mb-0"></li>';
+    }
+
     productList.innerHTML = str;
-    showArr = categoryName;
+    showArr = categoryArr;
     nowPage = pageNum;
     cart = document.querySelectorAll('.cartbtn');
     faver = document.querySelectorAll('.faver');
@@ -203,7 +212,8 @@ function cartCheck(proId,showId){
             arr = setSmToLg(cartArr,'Str');
             updateLocal('cartId',arr);
             cart[showId].setAttribute('id','');
-            cart[showId].textContent = '加入購物車';
+            // cart[showId].textContent = '加入購物車';
+            cart[showId].innerHTML = '加入購物車';
             updateNum();
             check = false;
             break;
@@ -214,7 +224,8 @@ function cartCheck(proId,showId){
         arr = setSmToLg(cartArr,'Str');
         updateLocal('cartId',arr);
         cart[showId].setAttribute('id','cart-select');
-        cart[showId].textContent = '已加入購物車';
+        // cart[showId].textContent = '+  已加入購物車  +';
+        cart[showId].innerHTML = '已加入購物車<span class="material-symbols-outlined">pets</span>';
         updateNum();
     }
 }

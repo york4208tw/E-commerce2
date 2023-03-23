@@ -6,6 +6,7 @@
     display: flex;
     flex-direction: column;
     border-bottom: 2px $primaryOrange solid;
+    position: relative;
     li{
         height: 60px;
         border: 2px $primaryOrange solid;
@@ -33,6 +34,37 @@
         color: $lightOrange;
         pointer-events: none;
     }
+    &::after{
+        content: '';
+        width: 80%;
+        height: 100%;
+        position: absolute;
+        top: 100%;
+        left: 15%;
+        transform-origin: top;
+        background: url(../pic/icon/cat-category.png);
+        background-repeat: no-repeat;
+        animation-name: catmotion;
+        animation-duration: 4s;
+        animation-iteration-count: infinite;
+    }
+    .hide-item{
+        height: 0px;
+        overflow: hidden;
+        transform-origin: top;
+        transition: all .2s ease;
+    }
+    #open-item{
+        height: 60px;
+    }
+
+}
+@keyframes catmotion {
+    0%  {transform: matrix( 1, 0, 0, 1, 0, 1.5 );}
+    25%  {transform: matrix( 1, 0, .1, 1.1, 5, 1.5 );}
+    50%  {transform: matrix( 1, 0, 0, 1, .9, 1.5 );}
+    75%  {transform: matrix( 1, 0, -.1, 1.1, -5, 1.5 );}
+    100%  {transform: matrix( 1, 0, 0, 1, 0, 1.5 );}
 }
 .product{
     &-list{
@@ -105,9 +137,19 @@
         &:hover{
             transform: scale(1.05);
         }
+        span{
+            font-size: 18px;
+            margin-left: 12px;
+            transform: rotate(-24deg);
+            pointer-events: none;
+        }
     }
     #cart-select{
+        border-color: $secondary;
         background: $secondary;
+        &:hover{
+            border-color: $secondary;
+        }
     }
 
     .pagebtns{
@@ -146,7 +188,13 @@
 }
 
 
-
+@media (max-width: 1200px) {
+    .category-list{
+        &::after{
+            transform: scale(.7);
+        }
+    }
+}
 
 @media (max-width: 992px) {
     .category-list{
@@ -162,6 +210,12 @@
             width: 100%;
             height: 30px;
 
+        }
+        &::after{
+            display: none;
+        }
+        .hide-item{
+            height: 60px;
         }
     }
     .product{
@@ -218,6 +272,12 @@
             right: 30px;
             &:hover{
                 top: 45px;
+            }
+        }
+        .faver-nosale{
+            top: 30px;
+            &:hover{
+                top: 25px;
             }
         }
         .name, .price{

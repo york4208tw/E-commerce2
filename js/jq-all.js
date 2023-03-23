@@ -6,8 +6,10 @@ $(document).ready(function(){
         $( '.navbar-nav' ).toggleClass('nav-toggle');
     });
 
-    //faver
-    // $('.faver').click(function (e) { 
-    //     $( this ).toggleClass('faver-select');
-    // });
+    //light&dark
+    $('.darkbtn').click(function (e) {
+        $( this ).toggleClass('bx-sun');
+        $( 'body, .footer, .mailbar' ).toggleClass('dark-mode');
+        // $( '.costbar, .costbar-container' ).toggleClass('grey_mode');
+    });
 });

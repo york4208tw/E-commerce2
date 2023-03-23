@@ -77,9 +77,43 @@ body ::-moz-placeholder { /* Firefox 19+ */
   left: 0;
   background: #dc8605;
 }
+.navbar .darkbtn {
+  font-size: 1.5rem;
+}
 
 .navbar-nav {
   display: flex;
+  transition: all 0.2s ease;
+}
+
+.totop {
+  position: fixed;
+  font-size: 1.5rem;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-content: start;
+  flex-wrap: wrap;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  color: #ffe8c5;
+  background-color: #dc8605;
+  right: 2%;
+  bottom: 4%;
+  padding-bottom: 5px;
+  transition: all 0.2s ease;
+  transform: translateX(100px);
+  box-shadow: 0 0 5px black;
+  z-index: 2;
+}
+.totop i, .totop span {
+  height: 20px;
+  pointer-events: none;
+}
+.totop:hover {
+  color: #ffe8c5;
+  background: #d02121;
 }
 
 .contactbar {
@@ -178,11 +212,18 @@ body ::-moz-placeholder { /* Firefox 19+ */
 }
 
 @media (max-width: 768px) {
+  .navbar .active::after {
+    bottom: 0px;
+  }
   .navbar-nav {
-    display: none;
+    margin-top: 0;
+    height: 0;
+    overflow: hidden;
   }
   .nav-toggle {
     display: flex;
+    height: 30px;
+    margin-top: 12px;
   }
   .mailbar {
     margin-top: 16px;
@@ -205,6 +246,10 @@ body ::-moz-placeholder { /* Firefox 19+ */
     height: 35px;
   }
 }
+.dark-mode {
+  background: #0c0702 !important;
+}
+
 .carousel {
   border-top: 8px #dc8605 solid;
   border-bottom: 8px #dc8605 solid;
@@ -214,6 +259,7 @@ body ::-moz-placeholder { /* Firefox 19+ */
   display: flex;
   flex-direction: column;
   border-bottom: 2px #dc8605 solid;
+  position: relative;
 }
 .category-list li {
   height: 60px;
@@ -242,7 +288,47 @@ body ::-moz-placeholder { /* Firefox 19+ */
   color: #ffe8c5;
   pointer-events: none;
 }
+.category-list::after {
+  content: "";
+  width: 80%;
+  height: 100%;
+  position: absolute;
+  top: 100%;
+  left: 15%;
+  transform-origin: top;
+  background: url(../pic/icon/cat-category.png);
+  background-repeat: no-repeat;
+  animation-name: catmotion;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+}
+.category-list .hide-item {
+  height: 0px;
+  overflow: hidden;
+  transform-origin: top;
+  transition: all 0.2s ease;
+}
+.category-list #open-item {
+  height: 60px;
+}
 
+@keyframes catmotion {
+  0% {
+    transform: matrix(1, 0, 0, 1, 0, 1.5);
+  }
+  25% {
+    transform: matrix(1, 0, 0.1, 1.1, 5, 1.5);
+  }
+  50% {
+    transform: matrix(1, 0, 0, 1, 0.9, 1.5);
+  }
+  75% {
+    transform: matrix(1, 0, -0.1, 1.1, -5, 1.5);
+  }
+  100% {
+    transform: matrix(1, 0, 0, 1, 0, 1.5);
+  }
+}
 .product-list {
   display: flex;
   justify-content: space-between;
@@ -313,8 +399,18 @@ body ::-moz-placeholder { /* Firefox 19+ */
 .product .cartbtn:hover {
   transform: scale(1.05);
 }
+.product .cartbtn span {
+  font-size: 18px;
+  margin-left: 12px;
+  transform: rotate(-24deg);
+  pointer-events: none;
+}
 .product #cart-select {
+  border-color: #d02121;
   background: #d02121;
+}
+.product #cart-select:hover {
+  border-color: #d02121;
 }
 .product .pagebtns {
   display: flex;
@@ -350,6 +446,11 @@ body ::-moz-placeholder { /* Firefox 19+ */
   pointer-events: none;
 }
 
+@media (max-width: 1200px) {
+  .category-list::after {
+    transform: scale(0.7);
+  }
+}
 @media (max-width: 992px) {
   .category-list {
     flex-direction: row;
@@ -364,6 +465,12 @@ body ::-moz-placeholder { /* Firefox 19+ */
   .category-list .list-title {
     width: 100%;
     height: 30px;
+  }
+  .category-list::after {
+    display: none;
+  }
+  .category-list .hide-item {
+    height: 60px;
   }
   .product-item {
     margin-left: 0;
@@ -409,6 +516,12 @@ body ::-moz-placeholder { /* Firefox 19+ */
   }
   .product .faver:hover {
     top: 45px;
+  }
+  .product .faver-nosale {
+    top: 30px;
+  }
+  .product .faver-nosale:hover {
+    top: 25px;
   }
   .product .name, .product .price {
     padding: 8px 0;

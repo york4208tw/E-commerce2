@@ -64,10 +64,44 @@ body{
         left: 0;
         background: $primaryOrange;
     }
+    .darkbtn{
+        font-size: $font-l;
+    }
 }
 .navbar-nav{
     display: flex;
+    transition: all .2s ease;
 }
+.totop{
+    position: fixed;
+    font-size: 1.5rem;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-content: start;
+    flex-wrap: wrap;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    color: $lightOrange;
+    background-color: $primaryOrange;
+    right: 2%;
+    bottom: 4%;
+    padding-bottom: 5px;
+    transition: all 0.2s ease;
+    transform: translateX(100px);
+    box-shadow: 0 0 5px black;
+    z-index: 2;
+    i, span{
+        height: 20px;
+        pointer-events: none;
+    }
+    &:hover{
+        color: $lightOrange;
+        background: $secondary;
+    }
+}
+
 .contactbar{
     padding: 30px;
     background-color: $primaryOrange;
@@ -167,11 +201,21 @@ body{
 
 
 @media (max-width: 768px) {
+    .navbar{
+        .active::after{
+            bottom: 0px;
+        }
+    }
     .navbar-nav{
-        display: none;
+        // display: none;
+        margin-top: 0;
+        height: 0;
+        overflow: hidden;
     }
     .nav-toggle{
         display: flex;
+        height: 30px;
+        margin-top: 12px;
     }
     .mailbar{
         margin-top: 16px;
@@ -201,5 +245,6 @@ body{
         }
     }
 }
-// @media (max-width: 425px) {
-// }
+.dark-mode{
+    background: $darkBg !important; 
+}

@@ -14,6 +14,7 @@
     <meta property="og:image" content="https://york4208tw.github.io/E-commerce/pic/fb_preview.png">
 
     <link rel="stylesheet"href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
 
     <script src="js/jquery-3.6.3.min.js"></script>
@@ -27,35 +28,43 @@
                 <i class="bx bx-menu"></i>
             </div>
             <div class="col-4 col-lg-3 d-none d-md-block logo">
-                <a href="#"><img src="pic/logo-all-dark.png" alt="logo"></a>
+                <a href="index.html"><img src="pic/logo-all-dark.png" alt="logo"></a>
             </div>
             <div class="col-6 col-md-3 d-md-none m-logo">
-                <a href="#"><img src="pic/logotype-sm-dark.png" alt="logo"></a>
+                <a href="index.html"><img src="pic/logotype-sm-dark.png" alt="logo"></a>
             </div>
             <div class="col-3 d-md-none m-cart">
                 <a href="#"><img src="pic/icon/shopping_cart.png" alt="shopping_cart"><span>0</span></a>
             </div>
-            <div class="col-12 col-md-5">
+            <div class="col-12 col-md-6">
                 <ul class="navbar-nav">
                     <li class="navbar-item"><a class="active" aria-current="page" href="#">首頁</a></li>
                     <li class="navbar-item"><a href="#">狗狗商品</a></li>
                     <li class="navbar-item"><a href="#">貓貓商品</a></li>
                     <li class="navbar-item"><a href="#">登入</a></li>
+                    <li class="navbar-item bx bx-moon darkbtn"><a href="#"></a></li>
                     <li class="navbar-item d-none d-md-list-item"><a href="#"><img src="pic/icon/shopping_cart.png" alt="shopping_cart"><span>0</span></a></li>
                 </ul>
             </div>
         </div>
     </div>
 
-    <!-- <div class="container mb-6 banner">
+    <div class="d-flex">
+        <a class="totop" data-aos="fade-left" data-aos-offset="500" data-aos-once="false" href="#">
+            <i class="ri-arrow-up-s-line"></i>
+            <span>TOP</span>
+        </a>
+    </div>
+
+    <div class="container mb-3 mb-lg-6 banner">
         <div class="row">
             <div class="col-12 d-none d-sm-block">
                 
-                <div id="carouselPaint" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                <div id="carouselBanner" class="carousel slide carousel-fade" data-bs-ride="carousel">
                     <div class="carousel-indicators">
-                        <button type="button" data-bs-target="#carouselPaint" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                        <button type="button" data-bs-target="#carouselPaint" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                        <button type="button" data-bs-target="#carouselPaint" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                        <button type="button" data-bs-target="#carouselBanner" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carouselBanner" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#carouselBanner" data-bs-slide-to="2" aria-label="Slide 3"></button>
                     </div>
 
                     <div class="carousel-inner">
@@ -79,30 +88,29 @@
                       </div>
                     </div>
 
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselPaint" data-bs-slide="prev">
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselBanner" data-bs-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Previous</span>
                     </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselPaint" data-bs-slide="next">
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselBanner" data-bs-slide="next">
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Next</span>
                     </button>
                 </div>
             </div>
         </div>
-    </div> -->
-
+    </div>
     <div class="container mb-8 content">
         <div class="row">
             <div class="col-12 col-lg-3">
                 <ul class="category-list">
                     <li class="list-title"><a class="title" href="#">商品類別</a></li>
                     <li><a class="allbtn" href="#">所有商品<span>（999）</span></a></li>
-                    <li><a class="salebtn" href="#">本日折扣<span>（99）</span></a></li>
+                    <li><a class="salebtn" href="#">本日優惠<span>（99）</span></a></li>
                     <li><a class="hotbtn" href="#">人氣推薦<span>（99）</span></a></li>
                     <li><a class="newbtn" href="#">新品上市<span>（99）</span></a></li>
-                    <li><a class="lowPricebtn" href="#">小資商品<span>（99）</span></a></li>
-                    <li><a class="myFaverbtn" href="#">我的最愛<span>（99）</span></a></li>
+                    <li class="hide-item"><a class="lowPricebtn" href="#">小資商品<span>（99）</span></a></li>
+                    <li class="hide-item"><a class="myFaverbtn" href="#">我的最愛<span>（99）</span></a></li>
                 </ul>
             </div>
             <div class="col-12 col-lg-9">
