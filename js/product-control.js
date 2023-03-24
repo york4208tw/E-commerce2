@@ -264,6 +264,5 @@ function pageAction(pageName){
 //使用者控制一頁顯示數量
 function changeProductForPage(e){
     productForPage = e.target.value;
-    categoryTitleName = '所有商品';
-    creatProductList(allArr,1);
+    creatProductList(showArr,1);
 }
