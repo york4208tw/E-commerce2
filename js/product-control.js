@@ -2,6 +2,9 @@
 var categoryList = document.querySelector('.category-list');
 var categoryNum = document.querySelectorAll('.category-list span');
 var productArea = document.querySelector('.product');
+var categoryTitle = document.querySelector('.category-name');
+var categoryTitleNum = document.querySelector('.category-num');
+var productForPageSelect = document.querySelector('#product-for-page-select');
 var productList = document.querySelector('.product-list');
 var pageList = document.querySelector('.page-list .pagebtns');
 var cart = document.querySelectorAll('.cartbtn');
@@ -10,6 +13,7 @@ var faver = document.querySelectorAll('.faver');
 //監聽
 categoryList.addEventListener('click', btnAction, false);
 productArea.addEventListener('click', btnAction, false);
+productForPageSelect.addEventListener('change', changeProductForPage,false);
 
 //變數
 var allArr = [];
@@ -26,7 +30,6 @@ var nowPage = 1;
 categoryCheck();
 updateNum();
 creatProductList(allArr,1);
-
 
 //將商品依類別分類至各 Arr
 function categoryCheck(){
@@ -127,7 +130,7 @@ function creatProductList(categoryArr,pageNum){
     var overRowNum = overNum % productForRow; //當前商品 不滿一列的數量
     if ( overRowNum < productForRow && overRowNum !==0 && pageNum == num){
         for (o=0; o<productForRow-overRowNum; o++){
-            str += '<li class="product-item mb-0"><img class="product-pic d-none d-md-block" src="pic/cat/noproduct.png" alt="沒有產品"></li>';
+            str += '<li class="product-item mb-0"><img class="product-pic d-none d-md-block" src="pic/cat/noproduct.png" alt="沒有產品"><div class="product-info"><a class="name no-product" href="#">-</a><div class="price">-</div></div><div class="no-cartbtn">沒有商品</div></li>';
         }
     }
     if ( overNum <= productForRow && overNum !== 0 && pageNum == num){
@@ -139,6 +142,8 @@ function creatProductList(categoryArr,pageNum){
     nowPage = pageNum;
     cart = document.querySelectorAll('.cartbtn');
     faver = document.querySelectorAll('.faver');
+    categoryTitle.textContent = categoryTitleName ;
+    categoryTitleNum.textContent = '共 '+ showArr.length +' 筆';
 }
 
 //計算類別頁數
@@ -154,14 +159,15 @@ function pageCount(Arr){
 
 //更新資訊到 商品類別數量 & 購物車數量
 function updateNum(){
-    categoryNum[0].textContent = '('+ allArr.length +')';
-    categoryNum[1].textContent = '('+ saleArr.length +')';
-    categoryNum[2].textContent = '('+ hotArr.length +')';
-    categoryNum[3].textContent = '('+ newArr.length +')';
-    categoryNum[4].textContent = '('+ lowPriceArr.length +')';
-    categoryNum[5].textContent = '('+ faverArr.length +')';
+    categoryNum[0].textContent = '( '+ allArr.length +' )';
+    categoryNum[1].textContent = '( '+ saleArr.length +' )';
+    categoryNum[2].textContent = '( '+ hotArr.length +' )';
+    categoryNum[3].textContent = '( '+ newArr.length +' )';
+    categoryNum[4].textContent = '( '+ lowPriceArr.length +' )';
+    categoryNum[5].textContent = '( '+ faverArr.length +' )';
     cartNum[0].textContent = cartArr.length;
     cartNum[1].textContent = cartArr.length;
+    categoryTitleNum.textContent = '共 '+ showArr.length +' 筆';
 }
 
 //更新資訊到 localStorage 可放 Arr/Str/Boolean
@@ -218,7 +224,6 @@ function cartCheck(proId,showId){
             arr = setSmToLg(cartArr,'Str');
             updateLocal('cartId',arr);
             cart[showId].setAttribute('id','');
-            // cart[showId].textContent = '加入購物車';
             cart[showId].innerHTML = '加入購物車';
             updateNum();
             check = false;
@@ -230,7 +235,6 @@ function cartCheck(proId,showId){
         arr = setSmToLg(cartArr,'Str');
         updateLocal('cartId',arr);
         cart[showId].setAttribute('id','cart-select');
-        // cart[showId].textContent = '+  已加入購物車  +';
         cart[showId].innerHTML = '已加入購物車<span class="material-symbols-outlined">pets</span>';
         updateNum();
     }
@@ -240,17 +244,26 @@ function pageAction(pageName){
     var num = pageCount(showArr);
     if( pageName == 'prebtn' ){
         if( nowPage != 1 ){
-            creatProductList( showArr, nowPage-1 );
+            var goPage = Number(nowPage)-1;
+            creatProductList( showArr, goPage );
         }else{
             alert('已經是第一頁了歐！');
         }
     }else if( pageName == 'nextbtn' ){
         if( nowPage != num ){
-            creatProductList( showArr, nowPage+1 );
+            var goPage = Number(nowPage)+1;
+            creatProductList( showArr, goPage );
         }else{
             alert('已經是最後一頁了歐！');
         }
     }else{
         creatProductList( showArr, pageName );
     }
+}
+
+//使用者控制一頁顯示數量
+function changeProductForPage(e){
+    productForPage = e.target.value;
+    categoryTitleName = '所有商品';
+    creatProductList(allArr,1);
 }

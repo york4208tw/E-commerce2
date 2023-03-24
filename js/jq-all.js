@@ -9,7 +9,6 @@ $(document).ready(function(){
     //light&dark
     $('.darkbtn').click(function (e) {
         $( this ).toggleClass('bx-sun');
-        $( 'body, .footer, .mailbar' ).toggleClass('dark-mode');
-        // $( '.costbar, .costbar-container' ).toggleClass('grey_mode');
+        $( 'body, .footer, .mailbar, #product-for-page-select' ).toggleClass('dark-mode');
     });
 });

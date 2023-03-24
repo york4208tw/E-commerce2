@@ -19,6 +19,7 @@ var productHref = '#'; //預覽用產品頁
 var productForPage = 6; // 產品一頁顯示數量
 var productForRow = 3; // 產品一列顯示數量，以目前版型請勿更動
 var isOpen = false; //分類表單收合狀態
+var categoryTitleName = '所有商品';
 
 //按鈕動作
 function btnAction(e){
@@ -40,27 +41,33 @@ function btnAction(e){
         // 商品類別 category
         case 'allbtn':
             e.preventDefault();
+            categoryTitleName = '所有商品';
             creatProductList(allArr,1);
             break;
         case 'salebtn':
             e.preventDefault();
+            categoryTitleName = '本日優惠';
             creatProductList(saleArr,1);
             break;
         case 'hotbtn':
             e.preventDefault();
+            categoryTitleName = '人氣推薦';
             creatProductList(hotArr,1);
             break;
         case 'newbtn':
             e.preventDefault();
+            categoryTitleName = '新品上市';
             creatProductList(newArr,1);
             break;
         case 'lowPricebtn':
             e.preventDefault();
+            categoryTitleName = '小資商品';
             creatProductList(lowPriceArr,1);
             break;
         case 'myFaverbtn':
             e.preventDefault();
             if ( faverArr.length !== 0 ){
+                categoryTitleName = '我的最愛';
                 creatProductList(faverArr,1);
             }else{
                 alert('您還沒有最愛的商品唷!\n快找個商品按按看上面的愛心吧～');
@@ -90,7 +97,6 @@ function btnAction(e){
             break;
         case 'cartbtn':
             e.preventDefault();
-            console.log(e);
             cartCheck(e.target.dataset.proid, e.target.dataset.showid);
             break;
         case 'pagebtn':
@@ -105,11 +111,14 @@ function btnAction(e){
             e.preventDefault();
             pageAction(e.target.className);
             break;
+        case 'name no-product':
+            e.preventDefault();
+            break;
 
         default:
             //console.log(e.target.innerHTML);
-            // console.log(e.target.className);
-            console.log(e);
+            //console.log(e.target.className);
+            // console.log(e);
     }
 }
 
