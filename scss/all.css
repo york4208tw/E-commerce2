@@ -78,7 +78,13 @@ body ::-moz-placeholder { /* Firefox 19+ */
   background: #dc8605;
 }
 .navbar .darkbtn {
+  cursor: pointer;
+  width: 24px;
   font-size: 1.5rem;
+}
+.navbar .darkbtn a {
+  top: 1px;
+  position: absolute;
 }
 
 .navbar-nav {
@@ -127,6 +133,7 @@ body ::-moz-placeholder { /* Firefox 19+ */
 .contactbar .link img {
   width: 40px;
   margin-right: 16px;
+  cursor: pointer;
   transition: all 0.2s ease;
 }
 .contactbar .link img:hover {
@@ -140,6 +147,7 @@ body ::-moz-placeholder { /* Firefox 19+ */
   font-size: 1.5rem;
   color: #ffe8c5;
   font-weight: bold;
+  cursor: default;
 }
 .contactbar .title span {
   width: 100%;
@@ -290,8 +298,9 @@ body ::-moz-placeholder { /* Firefox 19+ */
 }
 .category-list::after {
   content: "";
+  cursor: pointer;
   width: 80%;
-  height: 100%;
+  height: 55%;
   position: absolute;
   top: 100%;
   left: 15%;
@@ -300,6 +309,21 @@ body ::-moz-placeholder { /* Firefox 19+ */
   background-repeat: no-repeat;
   animation-name: catmotion;
   animation-duration: 4s;
+  animation-iteration-count: infinite;
+}
+.category-list::before {
+  content: "";
+  height: 100%;
+  width: 75%;
+  position: absolute;
+  top: 75%;
+  left: -45px;
+  transform-origin: center;
+  transform: scale(0.4);
+  background: url(../pic/icon/tap.png);
+  background-repeat: no-repeat;
+  animation-name: tapmotion;
+  animation-duration: 10s;
   animation-iteration-count: infinite;
 }
 .category-list .hide-item {
@@ -327,6 +351,39 @@ body ::-moz-placeholder { /* Firefox 19+ */
   }
   100% {
     transform: matrix(1, 0, 0, 1, 0, 1.5);
+  }
+}
+@keyframes tapmotion {
+  0% {
+    transform: matrix(0.3, 0, 0, 0.3, 0, 0);
+    opacity: 0;
+  }
+  5% {
+    opacity: 1;
+  }
+  10% {
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  20% {
+    transform: matrix(0.4, 0, 0, 0.4, 0, 0);
+  }
+  25% {
+    transform: matrix(0.4, -0.1, 0.1, 0.4, 0, 0);
+  }
+  30% {
+    transform: matrix(0.4, 0, 0, 0.4, 0, 0);
+    opacity: 1;
+  }
+  45% {
+    transform: matrix(0.3, 0, 0, 0.3, 0, 0);
+    opacity: 0;
+  }
+  100% {
+    transform: matrix(0.3, 0, 0, 0.3, 0, 0);
+    opacity: 0;
   }
 }
 .product-list {
@@ -358,6 +415,7 @@ body ::-moz-placeholder { /* Firefox 19+ */
   right: 38px;
   transform: translate(50%, -50%);
   transition: all 0.2s ease;
+  cursor: pointer;
 }
 .product .faver:hover {
   top: 35px;
@@ -378,6 +436,9 @@ body ::-moz-placeholder { /* Firefox 19+ */
   text-align: center;
   border: 2px #dc8605 solid;
   border-top: none;
+}
+.product .price {
+  cursor: default;
 }
 .product-info {
   display: flex;
@@ -449,6 +510,24 @@ body ::-moz-placeholder { /* Firefox 19+ */
 @media (max-width: 1200px) {
   .category-list::after {
     transform: scale(0.7);
+    animation-name: catmotion-s;
+  }
+}
+@keyframes catmotion-s {
+  0% {
+    transform: matrix(0.7, 0, 0, 0.7, 0, 1.5);
+  }
+  25% {
+    transform: matrix(0.7, 0, 0.1, 0.7, 5, 1.5);
+  }
+  50% {
+    transform: matrix(0.7, 0, 0, 0.7, 0.9, 1.5);
+  }
+  75% {
+    transform: matrix(0.7, 0, -0.1, 0.7, -5, 1.5);
+  }
+  100% {
+    transform: matrix(0.7, 0, 0, 0.7, 0, 1.5);
   }
 }
 @media (max-width: 992px) {
@@ -467,6 +546,9 @@ body ::-moz-placeholder { /* Firefox 19+ */
     height: 30px;
   }
   .category-list::after {
+    display: none;
+  }
+  .category-list::before {
     display: none;
   }
   .category-list .hide-item {

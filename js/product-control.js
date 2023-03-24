@@ -55,8 +55,8 @@ function creatProductList(categoryArr,pageNum){
     //頁數控制
     var pageStr = '';
     var num = pageCount(categoryArr);
-    var newStartNum = 0;
-    var Len = categoryArr.length;
+    var newStartNum = 0; //新for迴圈起始數字
+    var Len = categoryArr.length; //新for迴圈陣列長度
     if( num > pageNum ){
         newStartNum = (pageNum-1) * productForPage;
         Len = pageNum * productForPage;
@@ -123,9 +123,15 @@ function creatProductList(categoryArr,pageNum){
             str +='已加入購物車</div></a></li>';
         }
     }
-    var overNum = categoryArr.length % productForPage;
-    if ( overNum % productForRow == 2 ){
-        str += '<li class="product-item mb-0"></li>';
+    var overNum = categoryArr.length % productForPage; //當前商品 不滿一頁的數量
+    var overRowNum = overNum % productForRow; //當前商品 不滿一列的數量
+    if ( overRowNum < productForRow && overRowNum !==0 && pageNum == num){
+        for (o=0; o<productForRow-overRowNum; o++){
+            str += '<li class="product-item mb-0"><img class="product-pic d-none d-md-block" src="pic/cat/noproduct.png" alt="沒有產品"></li>';
+        }
+    }
+    if ( overNum <= productForRow && overNum !== 0 && pageNum == num){
+        str += '<li class="product-item mb-8"></li>';
     }
 
     productList.innerHTML = str;
