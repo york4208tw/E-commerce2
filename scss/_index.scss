@@ -147,6 +147,8 @@
         font-size: 24px;
         font-weight: bold;
         color: $primaryOrange;
+        background: $lightBg;
+        transition: all .2s ease;
         //刪除select箭頭
         appearance: none;
         -moz-appearance: none;
@@ -173,7 +175,7 @@
         padding: 8px 16px;
         color: $lightOrange;
         font-weight: bold;
-        background: $primaryOrange;
+        background: $secondary;
         border-radius: 0 20px 20px 0;
         border: 3px $lightOrange solid;
         border-left:0;
@@ -348,9 +350,9 @@
     }
 }
 @media (max-width: 576px) {
-    .banner{
-        display: none;
-    }
+    // .banner{
+    //     display: none;
+    // }
     .category-list{
         a{
             font-size: $font-m;

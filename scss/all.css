@@ -438,6 +438,8 @@ body ::-moz-placeholder { /* Firefox 19+ */
   font-size: 24px;
   font-weight: bold;
   color: #dc8605;
+  background: #fffbed;
+  transition: all 0.2s ease;
   appearance: none;
   -moz-appearance: none;
   -webkit-appearance: none;
@@ -462,7 +464,7 @@ body ::-moz-placeholder { /* Firefox 19+ */
   padding: 8px 16px;
   color: #ffe8c5;
   font-weight: bold;
-  background: #dc8605;
+  background: #d02121;
   border-radius: 0 20px 20px 0;
   border: 3px #ffe8c5 solid;
   border-left: 0;
@@ -636,9 +638,6 @@ body ::-moz-placeholder { /* Firefox 19+ */
   }
 }
 @media (max-width: 576px) {
-  .banner {
-    display: none;
-  }
   .category-list a {
     font-size: 1.25rem;
   }

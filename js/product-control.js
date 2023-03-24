@@ -123,18 +123,18 @@ function creatProductList(categoryArr,pageNum){
         if ( isCart == true ){
             str +='已加入購物車<span class="material-symbols-outlined">pets</span></div></a></li>';
         }else{
-            str +='已加入購物車</div></a></li>';
+            str +='加入購物車</div></a></li>';
         }
     }
     var overNum = categoryArr.length % productForPage; //當前商品 不滿一頁的數量
     var overRowNum = overNum % productForRow; //當前商品 不滿一列的數量
     if ( overRowNum < productForRow && overRowNum !==0 && pageNum == num){
         for (o=0; o<productForRow-overRowNum; o++){
-            str += '<li class="product-item mb-0"><img class="product-pic d-none d-md-block" src="pic/cat/noproduct.png" alt="沒有產品"><div class="product-info"><a class="name no-product" href="#">-</a><div class="price">-</div></div><div class="no-cartbtn">沒有商品</div></li>';
+            str += '<li class="product-item mb-0 d-none d-md-block"><img class="product-pic" src="pic/cat/noproduct.png" alt="沒有產品"><div class="product-info"><a class="name no-product" href="#">-</a><div class="price">-</div></div><div class="no-cartbtn">沒有商品</div></li>';
         }
     }
     if ( overNum <= productForRow && overNum !== 0 && pageNum == num){
-        str += '<li class="product-item mb-8"></li>';
+        str += '<li class="product-item mb-8 d-none d-md-block"></li>';
     }
 
     productList.innerHTML = str;
