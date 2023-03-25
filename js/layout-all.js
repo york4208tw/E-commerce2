@@ -45,33 +45,33 @@ function btnAction(e){
         case 'allbtn':
             e.preventDefault();
             categoryTitleName = '所有商品';
-            creatProductList(allArr,1);
+            createProductList(allArr,1);
             break;
         case 'salebtn':
             e.preventDefault();
             categoryTitleName = '本日優惠';
-            creatProductList(saleArr,1);
+            createProductList(saleArr,1);
             break;
         case 'hotbtn':
             e.preventDefault();
             categoryTitleName = '人氣推薦';
-            creatProductList(hotArr,1);
+            createProductList(hotArr,1);
             break;
         case 'newbtn':
             e.preventDefault();
             categoryTitleName = '新品上市';
-            creatProductList(newArr,1);
+            createProductList(newArr,1);
             break;
         case 'lowPricebtn':
             e.preventDefault();
             categoryTitleName = '小資商品';
-            creatProductList(lowPriceArr,1);
+            createProductList(lowPriceArr,1);
             break;
         case 'myFaverbtn':
             e.preventDefault();
             if ( faverArr.length !== 0 ){
                 categoryTitleName = '我的最愛';
-                creatProductList(faverArr,1);
+                createProductList(faverArr,1);
             }else{
                 alert('您還沒有最愛的商品唷!\n快找個商品按按看上面的愛心吧～');
             }
