@@ -1,0 +1,205 @@
+.cart-area, .bill{
+    color: $darkOrange;
+    font-size: $font-m;
+    .title{
+        width: 100%;
+        color: $lightOrange;
+        background: $primaryOrange;
+        font-size: $font-l;
+        font-weight: bold;
+        text-align: center;
+        padding: 16px 0;
+        border-top-right-radius: 24px;
+        cursor: default;
+    }
+}
+.cart-area .title{
+    margin-bottom: 16px;
+}
+.cart-list{
+    flex-wrap: wrap;
+}
+.cart-item{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 2px $lightOrange solid;
+    .cart-pic{
+        position: relative;
+        height: 110px;
+        overflow: hidden;
+        img{
+        margin-top: -3px;
+        width: 110px;
+        transition: all .5s ease;
+        }
+        img:hover{
+            transform: scale(1.1);
+        }
+        &::after{
+            content: '';
+            opacity: 0;
+            transition: all .5s ease;
+        }
+        &:hover::after{
+            content: '回商店';
+            text-align: center;
+            font-size: $font-m;
+            color: $lightBg;
+            font-weight: bold;
+            width: 100%;
+            height: 30%;
+            opacity: 1;
+            background-image: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.573) 100%);
+            position: absolute;
+            bottom: 0;
+            pointer-events: none;
+        }
+    }
+    .cart-content{
+        width: 60%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: default;
+        .title{
+            width: 160px;
+            padding: 8px 0;
+            text-align: start;
+            color: $primaryOrange;
+            font-size: $font-m;
+            background: transparent;
+            margin-bottom: 0;
+        }
+        .price{
+            padding: 8px 0;
+            display: flex;
+        }
+        .price-org{
+            margin-right: 16px;
+        }
+        .is-sale{
+            text-decoration: line-through;
+            color: $grey;
+        }
+        .price-sale{
+            color: $secondary;
+        }
+    }
+    .cart-countbar{
+        display: flex;
+        border-right: 2px $lightOrange solid;
+        margin: 8px 0;
+        li{
+            width: 48px;
+            height: 48px;
+            border: 2px $lightOrange solid;
+            border-right: none;
+        }
+        a{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            &:hover{
+                background: $lightOrange;
+            }
+        }
+    }
+    .price-subtotal{
+        font-weight: bold;
+        color: $primaryOrange;
+        cursor: default;
+    }
+
+}
+.bill-content{
+    background: $lightOrange;
+    padding: 16px;
+    margin-bottom: 0;
+    cursor: default;
+    li{
+        display: flex;
+        justify-content: space-between;
+    }
+    .bill-sale span{
+        color: $secondary;
+    }
+    .bill-total{
+        padding-top: 16px;
+    }
+}
+.checkout-btn{
+    width: 100%;
+    padding: 16px 0;
+    font-size: $font-l;
+    font-weight: bold;
+    color: $lightBg;
+    background: $secondary;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all .2s ease;
+    &:hover{
+        color: $lightBg;
+        transform: scale(1.05);
+    }
+}
+
+
+@media (max-width: 768px) {
+    .cart-item{
+        flex-wrap: wrap;
+        .cart-pic{
+            height: 180px;
+            margin-right: 16px;
+        }
+        .cart-pic img{
+            width: 240px;
+            margin-top: -36px;
+        }
+        .cart-content{
+            width: calc(100% - 256px);
+            height: 180px;
+            flex-wrap: wrap;
+            align-items: end;
+            justify-content: end;
+            .cart-info{
+                width: 100%;
+            }
+        }
+        .cart-countbar{
+            margin: 0;
+        }
+        hr{
+            width: 100%;
+            margin: 8px 0 8px 0;
+            border: 1px $lightOrange solid;
+        }
+        .price-subtotal{
+            width: 100%;
+            text-align: end;
+        }
+    }
+}
+@media (max-width: 576px) {
+    .cart-item{
+        .cart-pic{
+            height: 180px;
+            margin-right: 16px;
+        }
+        .cart-pic img{
+            width: 180px;
+            margin-top: -4px;
+        }
+        .cart-content{
+            width: calc(100% - 196px);
+        }
+        .price{
+            flex-wrap: wrap;
+        }
+    }
+}

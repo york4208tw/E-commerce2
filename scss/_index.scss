@@ -1,7 +1,3 @@
-.carousel{
-    border-top: 8px $primaryOrange solid;
-    border-bottom: 8px $primaryOrange solid;
-}
 .category-list{
     display: flex;
     flex-direction: column;
@@ -30,8 +26,12 @@
         background-color: $lightOrange;
         font-size: calc($font-l + 2px);
     }
+    .list-title{
+        border-top-right-radius: 30px;
+    }
     .title{
         background-color: $primaryOrange;
+        border-top-right-radius: 24px;
         color: $lightOrange;
         pointer-events: none;
     }
@@ -123,6 +123,7 @@
         color: $primaryOrange;
         font-weight: bold;
         position: relative;
+        cursor: default;
         &::after{
             content: '';
             width: 12px;
@@ -356,9 +357,6 @@
     }
 }
 @media (max-width: 576px) {
-    // .banner{
-    //     display: none;
-    // }
     .category-list{
         a{
             font-size: $font-m;

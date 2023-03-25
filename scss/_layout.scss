@@ -46,22 +46,28 @@ body{
         font-weight: bold;
         position: relative;
     }
+    .navbar-item a::after{
+        content: '';
+        position: absolute;
+        height: 4px;
+        width: 0;
+        bottom: -4px;
+        left: 0;
+        border-radius: 4px;
+        background: $primaryOrange;
+        transition: all .2s ease;
+    }
+    .navbar-item a:hover::after{
+        width: 100%;
+    }
     .active::after{
         content: '';
         position: absolute;
         height: 4px;
-        width: 100%;
+        width: 100% !important;
         bottom: -4px;
         left: 0;
-        background: $primaryOrange;
-    }
-    .navbar-item a:hover::after{
-        content: '';
-        position: absolute;
-        height: 4px;
-        width: 100%;
-        bottom: -4px;
-        left: 0;
+        border-radius: 4px;
         background: $primaryOrange;
     }
     .darkbtn{
@@ -77,6 +83,14 @@ body{
 .navbar-nav{
     display: flex;
     transition: all .2s ease;
+}
+.carousel{
+    border-top: 8px $primaryOrange solid;
+    border-bottom: 8px $primaryOrange solid;
+    border-radius: 10px;
+    .carousel-caption{
+        cursor: default;
+    }
 }
 .totop{
     position: fixed;
@@ -203,6 +217,7 @@ body{
     p{
         text-align: end;
         margin-bottom: 0;
+        cursor: default;
     }
 }
 
@@ -224,6 +239,12 @@ body{
         display: flex;
         height: 30px;
         margin-top: 12px;
+    }
+    .carousel-indicators{
+        margin-bottom: 0;
+    }
+    .carousel-caption{
+        padding-bottom: 0;
     }
     .mailbar{
         margin-top: 16px;

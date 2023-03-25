@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>寵物之家2.0 - layout</title>
+    <link rel="shortcut icon" href="pic/favicon.ico">
+    <meta name='description' content='貓狗用品專賣店'>
+
+    <meta property="og:title" content="寵物之家2.0">
+    <meta property="og:description" content="貓狗用品專賣店">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://york4208tw.github.io/E-commerce2/pic/fb_preview.png">
+
+    <link rel="stylesheet"href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+
+    <script src="js/jquery-3.6.3.min.js"></script>
+    <script src="js/jq-all.js"></script>
+    <link rel="stylesheet" href="scss/all.css">
+</head>
+<body>
+    <div class="container header">
+        <div class="row navbar">
+            <div class="col-3 d-md-none hambtn">
+                <i class="bx bx-menu"></i>
+            </div>
+            <div class="col-4 col-lg-3 d-none d-md-block logo">
+                <a href="index.html"><img src="pic/logo-all-dark.png" alt="logo"></a>
+            </div>
+            <div class="col-6 col-md-3 d-md-none m-logo">
+                <a href="index.html"><img src="pic/logotype-sm-dark.png" alt="logo"></a>
+            </div>
+            <div class="col-3 d-md-none m-cart">
+                <a href="cart.html"><img src="pic/icon/shopping_cart.png" alt="shopping_cart"><span>0</span></a>
+            </div>
+            <div class="col-12 col-md-6">
+                <ul class="navbar-nav">
+                    <li class="navbar-item"><a class="active" aria-current="page" href="index.html">首頁</a></li>
+                    <li class="navbar-item"><a href="#">狗狗商品</a></li>
+                    <li class="navbar-item"><a href="#">貓貓商品</a></li>
+                    <li class="navbar-item"><a href="member.html">登入</a></li>
+                    <li class="navbar-item bx bx-moon darkbtn"><a href="#">&nbsp;&nbsp;</a></li>
+                    <li class="navbar-item d-none d-md-list-item"><a href="cart.html"><img src="pic/icon/shopping_cart.png" alt="shopping_cart"><span>0</span></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="d-flex">
+        <a class="totop" data-aos="fade-left" data-aos-offset="500" data-aos-once="false" href="#">
+            <i class="ri-arrow-up-s-line"></i>
+            <span>TOP</span>
+        </a>
+    </div>
+
+    <div class="container mb-3 mb-lg-6 banner">
+        <div class="row">
+            <div class="col-12">
+                <div id="carouselBanner" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselBanner" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carouselBanner" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#carouselBanner" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                    </div>
+
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="pic/banner1_layout.png" class="d-block w-100" alt="banner">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="pic/banner2_layout.png" class="d-block w-100" alt="banner2">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="pic/banner3_layout.png" class="d-block w-100" alt="banner3">
+                      </div>
+                    </div>
+
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselBanner" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselBanner" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 內文從此開始 -->
+    <div class="container mb-8 content">
+        <div class="row">
+        </div>
+    </div>
+    <!-- 內文結束 -->
+    <div class="contactbar">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-2 d-none d-sm-flex link">
+                    <img class="linebtn" src="pic/icon/ic-line@-light.png" alt="line">
+                    <img class="fbbtn" src="pic/icon/ic-facebook-light.png" alt="facebook">
+                </div>
+                <div class="col-11 col-sm-10 col-md-5 title">歡迎訂閱寵物之家！<span>讓我們一起照顧可愛的毛小孩&nbsp;&nbsp;</span></div>
+                <div class="col-12 col-md-5 mailbar">
+                    <div class="mailIcon"><i class="ri-mail-fill"></i></div>
+                    <input class="email" type="text" placeholder="請輸入信箱">
+                    <a class="submit" href="#"><i class="ri-arrow-right-line"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="container">
+            <div class="row companybar">
+                <div class="col-12 col-md-4">
+                    <img src="pic/logotype-sm-dark.png" alt="logo">
+                </div>
+                <div class="col-12 col-md-6 company-info">
+                    <p>04-1234-0000</p>
+                    <p>petfamily@email.com</p>
+                    <p>404 台中市北區動物路1314號</p>
+                </div>
+                <div class="col-12 pb-4">
+                    <p>© 2023 Petfamily All Rights Reserved</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/data.js"></script>
+    <Script src="js/layout-all.js"></Script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+</body>
+</html>

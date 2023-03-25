@@ -29,7 +29,7 @@ var nowPage = 1;
 //預先 函數更新
 categoryCheck();
 updateNum();
-creatProductList(allArr,1);
+createProductList(allArr,1);
 
 //將商品依類別分類至各 Arr
 function categoryCheck(){
@@ -53,7 +53,7 @@ function categoryCheck(){
 }
 
 //產生商品清單
-function creatProductList(categoryArr,pageNum){
+function createProductList(categoryArr,pageNum){
     
     //頁數控制
     var pageStr = '';
@@ -165,8 +165,6 @@ function updateNum(){
     categoryNum[3].textContent = '( '+ newArr.length +' )';
     categoryNum[4].textContent = '( '+ lowPriceArr.length +' )';
     categoryNum[5].textContent = '( '+ faverArr.length +' )';
-    cartNum[0].textContent = cartArr.length;
-    cartNum[1].textContent = cartArr.length;
     categoryTitleNum.textContent = '共 '+ showArr.length +' 筆';
 }
 
@@ -225,7 +223,7 @@ function cartCheck(proId,showId){
             updateLocal('cartId',arr);
             cart[showId].setAttribute('id','');
             cart[showId].innerHTML = '加入購物車';
-            updateNum();
+            updateCartNum();
             check = false;
             break;
         }
@@ -236,7 +234,7 @@ function cartCheck(proId,showId){
         updateLocal('cartId',arr);
         cart[showId].setAttribute('id','cart-select');
         cart[showId].innerHTML = '已加入購物車<span class="material-symbols-outlined">pets</span>';
-        updateNum();
+        updateCartNum();
     }
 }
 
@@ -245,24 +243,24 @@ function pageAction(pageName){
     if( pageName == 'prebtn' ){
         if( nowPage != 1 ){
             var goPage = Number(nowPage)-1;
-            creatProductList( showArr, goPage );
+            createProductList( showArr, goPage );
         }else{
             alert('已經是第一頁了歐！');
         }
     }else if( pageName == 'nextbtn' ){
         if( nowPage != num ){
             var goPage = Number(nowPage)+1;
-            creatProductList( showArr, goPage );
+            createProductList( showArr, goPage );
         }else{
             alert('已經是最後一頁了歐！');
         }
     }else{
-        creatProductList( showArr, pageName );
+        createProductList( showArr, pageName );
     }
 }
 
 //使用者控制一頁顯示數量
 function changeProductForPage(e){
     productForPage = e.target.value;
-    creatProductList(showArr,1);
+    createProductList(showArr,1);
 }

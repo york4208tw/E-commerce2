@@ -21,6 +21,9 @@ var productForRow = 3; // 產品一列顯示數量，以目前版型請勿更動
 var isOpen = false; //分類表單收合狀態
 var categoryTitleName = '所有商品';
 
+//預先 函數更新
+updateCartNum();
+
 //按鈕動作
 function btnAction(e){
 
@@ -115,10 +118,25 @@ function btnAction(e){
             e.preventDefault();
             break;
 
+        //購物車頁面
+        case 'item-modifier-decrease-quantity':
+            e.preventDefault();
+            break;
+        case 'quantity':
+            e.preventDefault();
+            break;
+        case 'item-modifier-increase-quantity':
+            e.preventDefault();
+            break;
+        case 'checkout-btn':
+            e.preventDefault();
+            break;
+
+
         default:
             //console.log(e.target.innerHTML);
             //console.log(e.target.className);
-            // console.log(e);
+            console.log(e);
     }
 }
 
@@ -173,4 +191,10 @@ function toTopAction(e){
     }else{
         toTop.style.transform = 'translateX(0px)';
     }
+}
+
+//
+function updateCartNum(){
+    cartNum[0].textContent = cartArr.length;
+    cartNum[1].textContent = cartArr.length;
 }
