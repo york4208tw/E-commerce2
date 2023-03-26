@@ -10,6 +10,8 @@ var cartNum = document.querySelectorAll('.navbar .cart-num'); //購物車數量
 var appLink = document.querySelector('.contactbar .link'); //fb & line
 var mailBar = document.querySelector('.mailbar');
 var toTop = document.querySelector('.totop');
+var catImg = document.querySelector('.cat-meow'); //夜晚貓咪
+var meowImg = document.querySelector('.cat-meow span');
 
 //監聽
 window.addEventListener('scroll', toTopAction, false);
@@ -280,8 +282,6 @@ function darkModeControl(isLoad){
 }
 
 //夜晚模式貓出沒
-var catImg = document.querySelector('.cat-meow');
-var meowImg = document.querySelector('.cat-meow span');
 var catAnim = true;
 function catMeow(){
     var meowAudio = new Audio('https://york4208tw.github.io/E-commerce2/audio/cat-meow.mp3');
