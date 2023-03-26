@@ -76,7 +76,7 @@ function billPrint(){
 //檢查購物車內 購買數量
 function cartQuantityCheck(){
     if (cartInfoArr.length == 0){
-        window.location.pathname = '/index.html';
+        window.location.pathname = '/E-commerce2/index.html';
         alert('正在跳轉，首頁\n寵物之家歡迎您');
     }
     for (i=0; i<cartInfoArr.length; i++){

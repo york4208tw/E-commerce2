@@ -48,7 +48,7 @@ function btnAction(e){
         case 'cart-icon':
             e.preventDefault();
             if ( cartInfoArr.length !== 0 ){
-                window.location.pathname = '/cart.html';
+                window.location.pathname = '/E-commerce2/cart.html';
             }else{
                 alert('您的購物車內還沒有物品喔!');
             }
@@ -56,7 +56,7 @@ function btnAction(e){
         case 'cart-num':
             e.preventDefault();
             if ( cartInfoArr.length !== 0 ){
-                window.location.pathname = '/cart.html';
+                window.location.pathname = '/E-commerce2/cart.html';
             }else{
                 alert('您的購物車內還沒有物品喔!');
             }
@@ -157,12 +157,12 @@ function btnAction(e){
             e.preventDefault();
             if ( cartInfoArr.length == 0){
                 alert('您的購物車內還沒有商品喔!\n跳轉回首頁');
-                window.location.pathname = '/index.html';
+                window.location.pathname = '/E-commerce2/index.html';
             }else{
                 if ( confirm( '確定要結單了嗎?\n本網站體驗到此，結單將會清空購物車內容！' ) == true ){
                     cartInfoArr = '[]';
                     localStorage.setItem('cartInfo',cartInfoArr);
-                    window.location.pathname = '/index.html';
+                    window.location.pathname = '/E-commerce2/index.html';
                 }
             }
             break;
