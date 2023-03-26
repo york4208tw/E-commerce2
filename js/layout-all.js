@@ -284,7 +284,7 @@ var catImg = document.querySelector('.cat-meow');
 var meowImg = document.querySelector('.cat-meow span');
 var catAnim = true;
 function catMeow(){
-    var meowAudio = new Audio('../audio/cat-meow.mp3');
+    var meowAudio = new Audio('https://york4208tw.github.io/E-commerce2/audio/cat-meow.mp3');
     if( catAnim == true ){
         meowAudio.play();
         catImg.style.animationName = 'cat-darkmode';
