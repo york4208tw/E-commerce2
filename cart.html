@@ -34,16 +34,16 @@
                 <a href="index.html"><img src="pic/logotype-sm-dark.png" alt="logo"></a>
             </div>
             <div class="col-3 d-md-none m-cart">
-                <a href="cart.html"><img src="pic/icon/shopping_cart.png" alt="shopping_cart"><span>0</span></a>
+                <a href="#"><img class="cart-icon" src="pic/icon/shopping_cart.png" alt="shopping_cart"><span class="cart-num">0</span></a>
             </div>
             <div class="col-12 col-md-6">
                 <ul class="navbar-nav">
                     <li class="navbar-item"><a aria-current="page" href="index.html">首頁</a></li>
-                    <li class="navbar-item"><a href="#">狗狗商品</a></li>
-                    <li class="navbar-item"><a href="#">貓貓商品</a></li>
-                    <li class="navbar-item"><a href="member.html">登入</a></li>
-                    <li class="navbar-item bx bx-moon darkbtn"><a href="#">&nbsp;&nbsp;</a></li>
-                    <li class="navbar-item d-none d-md-list-item"><a class="active" href="cart.html"><img src="pic/icon/shopping_cart.png" alt="shopping_cart"><span>0</span></a></li>
+                    <li class="navbar-item"><a class="notyet" href="#">狗狗商品</a></li>
+                    <li class="navbar-item"><a class="notyet" href="#">貓貓商品</a></li>
+                    <li class="navbar-item"><a class="notyet" href="#">登入</a></li>
+                    <li class="navbar-item bx bx-moon darkbtn-li"><a id="darkbtn" href="#">&nbsp;&nbsp;</a></li>
+                    <li class="navbar-item d-none d-md-list-item"><a class="active" href="#"><img class="cart-icon" src="pic/icon/shopping_cart.png" alt="shopping_cart"><span class="cart-num">0</span></a></li>
                 </ul>
             </div>
         </div>
@@ -56,7 +56,7 @@
         </a>
     </div>
 
-    <!-- <div class="container mb-3 mb-lg-6 banner">
+    <div class="container mb-3 mb-lg-6 banner">
         <div class="row">
             <div class="col-12">
                 <div id="carouselBanner" class="carousel slide carousel-fade" data-bs-ride="carousel">
@@ -89,7 +89,7 @@
                 </div>
             </div>
         </div>
-    </div> -->
+    </div>
     <!-- 內文從此開始 -->
     <div class="container mb-8 cart-block">
         <div class="row">
@@ -159,6 +159,7 @@
                 <ul class="bill-content">
                     <li class="subtotal">小計<span>NT$ 900</span></li>
                     <li class="delivery-fee">運費<span>NT$ 0</span></li>
+                    <li class="bill-sale"><em>( 滿千免運 )</em></li>
                     <li class="bill-sale">折扣<span>NT$ 240</span></li>
                     <li class="bill-total">總計<span>NT$ 660</span></li>
                 </ul>

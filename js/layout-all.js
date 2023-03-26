@@ -1,9 +1,12 @@
 //讀取 購物車 & 我的最愛 localStorage 資訊
-var cartArr = JSON.parse(localStorage.getItem('cartId')) || [] ;
+var cartInfoArr = JSON.parse(localStorage.getItem('cartInfo')) || [] ;
 var faverArr = JSON.parse(localStorage.getItem('faverId')) || [] ;
+var userState =  JSON.parse(localStorage.getItem('userState')) || {isDark: 0} ;
+localStorage.removeItem('cartId'); //刪除原有的 local data
 
 //DOM
-var cartNum = document.querySelectorAll('.navbar span'); //購物車數量
+var naverbar = document.querySelector('.navbar');
+var cartNum = document.querySelectorAll('.navbar .cart-num'); //購物車數量
 var appLink = document.querySelector('.contactbar .link'); //fb & line
 var mailBar = document.querySelector('.mailbar');
 var toTop = document.querySelector('.totop');
@@ -12,6 +15,7 @@ var toTop = document.querySelector('.totop');
 window.addEventListener('scroll', toTopAction, false);
 appLink.addEventListener('click', btnAction, false);
 mailBar.addEventListener('click', btnAction, false);
+naverbar.addEventListener('click', btnAction, false);
 
 //網頁預設資訊
 var productLen = products.length;
@@ -23,6 +27,7 @@ var categoryTitleName = '所有商品';
 
 //預先 函數更新
 updateCartNum();
+darkModeControl('firstOpen');
 
 //按鈕動作
 function btnAction(e){
@@ -40,6 +45,23 @@ function btnAction(e){
             e.preventDefault();
             mailTo();
             break;
+        case 'cart-icon':
+            e.preventDefault();
+            if ( cartInfoArr.length !== 0 ){
+                window.location.pathname = '/cart.html';
+            }else{
+                alert('您的購物車內還沒有物品喔!');
+            }
+            break;
+        case 'cart-num':
+            e.preventDefault();
+            if ( cartInfoArr.length !== 0 ){
+                window.location.pathname = '/cart.html';
+            }else{
+                alert('您的購物車內還沒有物品喔!');
+            }
+            break;
+        
 
         // 商品類別 category
         case 'allbtn':
@@ -91,6 +113,7 @@ function btnAction(e){
 
         //Product清單
         case 'product-pic':
+            e.preventDefault();
             break;
         case 'faver':
             faverCheck(e.target.dataset.proid, e.target.dataset.showid);
@@ -121,22 +144,47 @@ function btnAction(e){
         //購物車頁面
         case 'item-modifier-decrease-quantity':
             e.preventDefault();
+            cartQuantityCount(e.target.dataset.proid, e.target.dataset.showid, 'decrease');
             break;
         case 'quantity':
             e.preventDefault();
             break;
         case 'item-modifier-increase-quantity':
             e.preventDefault();
+            cartQuantityCount(e.target.dataset.proid, e.target.dataset.showid, 'increase');
             break;
         case 'checkout-btn':
             e.preventDefault();
+            if ( cartInfoArr.length == 0){
+                alert('您的購物車內還沒有商品喔!\n跳轉回首頁');
+                window.location.pathname = '/index.html';
+            }else{
+                if ( confirm( '確定要結單了嗎?\n本網站體驗到此，結單將會清空購物車內容！' ) == true ){
+                    cartInfoArr = '[]';
+                    localStorage.setItem('cartInfo',cartInfoArr);
+                    window.location.pathname = '/index.html';
+                }
+            }
             break;
-
 
         default:
             //console.log(e.target.innerHTML);
             //console.log(e.target.className);
-            console.log(e);
+            // console.log(e);
+    }
+    switch (e.target.id){
+        case 'darkbtn':
+            e.preventDefault();
+            if ( userState.isDark == 0 ){
+                userState.isDark = 1;
+            }else{
+                userState.isDark = 0;
+            }
+            var body = document.body;
+            body.style.transition = 'all .2s ease';
+            darkModeControl();
+            var str = JSON.stringify(userState);
+            updateLocal('userState',str);
     }
 }
 
@@ -195,6 +243,37 @@ function toTopAction(e){
 
 //
 function updateCartNum(){
-    cartNum[0].textContent = cartArr.length;
-    cartNum[1].textContent = cartArr.length;
+    cartNum[0].textContent = cartInfoArr.length;
+    cartNum[1].textContent = cartInfoArr.length;
+}
+
+//更新資訊到 localStorage 可放 Arr/Str/Boolean
+function updateLocal(keyName,data){
+    
+    if ( typeof(data) == 'string' ){
+        localStorage.setItem(keyName,data);
+    }
+    else if( typeof(data) == 'boolean' ){
+        localStorage.setItem(keyName,data);
+    }
+    else if( Array.isArray(data) == true ){
+        var str = JSON.stringify(data);
+        localStorage.setItem(keyName,str);
+    }
+    else{
+        console.log('更新localStorge失敗');
+    }
+}
+
+function darkModeControl(isLoad){
+    if ( isLoad == 'firstOpen' ){
+        if ( userState.isDark == 1 ){
+            $( '.darkbtn-li' ).toggleClass('bx-sun');
+            $( 'body, .footer, .mailbar, #product-for-page-select' ).toggleClass('dark-mode');
+        }
+    }else{
+        $( '.darkbtn-li' ).toggleClass('bx-sun');
+        $( 'body, .footer, .mailbar, #product-for-page-select' ).toggleClass('dark-mode');
+        console.log(userState.isDark);
+    }
 }

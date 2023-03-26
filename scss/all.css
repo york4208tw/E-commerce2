@@ -20,12 +20,10 @@ a {
   display: block;
 }
 
-body {
-  transition: all 0.5s ease;
-}
 body ::-moz-placeholder { /* CSS 3 標準 */
   color: #b6ad9d;
 }
+
 body ::placeholder { /* CSS 3 標準 */
   color: #b6ad9d;
 }
@@ -69,6 +67,7 @@ body ::-moz-placeholder { /* Firefox 19+ */
   border-radius: 4px;
   background: #dc8605;
   transition: all 0.2s ease;
+  pointer-events: none;
 }
 .navbar .navbar-item a:hover::after {
   width: 100%;
@@ -82,13 +81,35 @@ body ::-moz-placeholder { /* Firefox 19+ */
   left: 0;
   border-radius: 4px;
   background: #dc8605;
+  pointer-events: none;
 }
-.navbar .darkbtn {
+.navbar .notyet {
+  color: #b6ad9d;
+}
+.navbar .notyet:hover::after {
+  background: #b6ad9d;
+}
+.navbar .notyet::before {
+  content: "";
+  width: 100px;
+  opacity: 0;
+  top: 110%;
+  left: 50%;
+  position: absolute;
+  transform: translateX(-50%);
+  transition: all 0.2s ease;
+}
+.navbar .notyet:hover::before {
+  content: "Not here";
+  text-align: center;
+  opacity: 1;
+}
+.navbar .darkbtn-li {
   cursor: pointer;
   width: 24px;
   font-size: 1.5rem;
 }
-.navbar .darkbtn a {
+.navbar .darkbtn-li a {
   top: 1px;
   position: absolute;
 }
@@ -810,6 +831,7 @@ body ::-moz-placeholder { /* Firefox 19+ */
 .cart-item .cart-content .price {
   padding: 8px 0;
   display: flex;
+  flex-wrap: wrap;
 }
 .cart-item .cart-content .price-org {
   margin-right: 16px;
@@ -820,6 +842,11 @@ body ::-moz-placeholder { /* Firefox 19+ */
 }
 .cart-item .cart-content .price-sale {
   color: #d02121;
+}
+.cart-item .cart-content .stock {
+  width: 100%;
+  font-size: 1rem;
+  color: #dc8605;
 }
 .cart-item .cart-countbar {
   display: flex;
@@ -842,7 +869,14 @@ body ::-moz-placeholder { /* Firefox 19+ */
 .cart-item .cart-countbar a:hover {
   background: #ffe8c5;
 }
+.cart-item .cart-countbar .quantity:hover {
+  background: none;
+  color: #dc8605;
+  cursor: default;
+}
 .cart-item .price-subtotal {
+  width: 15%;
+  text-align: end;
   font-weight: bold;
   color: #dc8605;
   cursor: default;
@@ -857,6 +891,12 @@ body ::-moz-placeholder { /* Firefox 19+ */
 .bill-content li {
   display: flex;
   justify-content: space-between;
+}
+.bill-content em {
+  display: flex;
+  align-items: center;
+  color: #d02121;
+  font-size: 1rem;
 }
 .bill-content .bill-sale span {
   color: #d02121;
@@ -914,7 +954,6 @@ body ::-moz-placeholder { /* Firefox 19+ */
   }
   .cart-item .price-subtotal {
     width: 100%;
-    text-align: end;
   }
 }
 @media (max-width: 576px) {
@@ -929,8 +968,16 @@ body ::-moz-placeholder { /* Firefox 19+ */
   .cart-item .cart-content {
     width: calc(100% - 196px);
   }
+  .cart-item .cart-content .title {
+    padding: 0;
+  }
   .cart-item .price {
     flex-wrap: wrap;
+  }
+}
+@media (max-width: 425px) {
+  .cart-item .cart-content .price-org {
+    margin-right: 8px;
   }
 }
 /*

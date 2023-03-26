@@ -113,8 +113,8 @@ function createProductList(categoryArr,pageNum){
         
         //輸出 購物車資訊
         var isCart = false;
-        for ( c=0; c<cartArr.length; c++ ){
-            if( cartArr[c] ==  categoryArr[i] ){
+        for ( c=0; c<cartInfoArr.length; c++ ){
+            if( cartInfoArr[c].id ==  categoryArr[i] ){
                 str += 'cart-select';
                 isCart = true;
             }
@@ -168,24 +168,6 @@ function updateNum(){
     categoryTitleNum.textContent = '共 '+ showArr.length +' 筆';
 }
 
-//更新資訊到 localStorage 可放 Arr/Str/Boolean
-function updateLocal(keyName,data){
-    
-    if ( typeof(data) == 'string' ){
-        localStorage.setItem(keyName,data);
-    }
-    else if( typeof(data) == 'boolean' ){
-        localStorage.setItem(keyName,data);
-    }
-    else if( Array.isArray(data) == true ){
-        var str = JSON.stringify(data);
-        localStorage.setItem(keyName,str);
-    }
-    else{
-        console.log('更新localStorge失敗');
-    }
-}
-
 //檢查 最愛是否有資料 並上傳local
 function faverCheck(proId,showId){
     var check = true;
@@ -213,25 +195,25 @@ function faverCheck(proId,showId){
 
 //檢查 購物車是否有資料 並上傳local
 function cartCheck(proId,showId){
-    var check = true;
+    var isCart = false;
     var arr =[];
-    for ( i=0; i<cartArr.length; i++ ){
+    for ( i=0; i<cartInfoArr.length; i++ ){
         
-        if ( cartArr[i] == proId ){
-            cartArr.splice( i, 1 );
-            arr = setSmToLg(cartArr,'Str');
-            updateLocal('cartId',arr);
+        if ( cartInfoArr[i].id == proId ){
+            cartInfoArr.splice( i, 1 );
+            arr = JSON.stringify(cartInfoArr);
+            updateLocal('cartInfo',arr);
             cart[showId].setAttribute('id','');
             cart[showId].innerHTML = '加入購物車';
             updateCartNum();
-            check = false;
+            isCart = true;
             break;
         }
     }
-    if ( check == true ){
-        cartArr.push( proId );
-        arr = setSmToLg(cartArr,'Str');
-        updateLocal('cartId',arr);
+    if ( isCart == false ){
+        cartInfoArr.push( {id: proId } );
+        arr = JSON.stringify(cartInfoArr);
+        updateLocal('cartInfo',arr);
         cart[showId].setAttribute('id','cart-select');
         cart[showId].innerHTML = '已加入購物車<span class="material-symbols-outlined">pets</span>';
         updateCartNum();

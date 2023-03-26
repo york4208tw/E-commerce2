@@ -76,6 +76,7 @@
         .price{
             padding: 8px 0;
             display: flex;
+            flex-wrap: wrap;
         }
         .price-org{
             margin-right: 16px;
@@ -86,6 +87,11 @@
         }
         .price-sale{
             color: $secondary;
+        }
+        .stock{
+            width: 100%;
+            font-size: $font-s;
+            color: $primaryOrange;
         }
     }
     .cart-countbar{
@@ -108,8 +114,16 @@
                 background: $lightOrange;
             }
         }
+        .quantity:hover{
+            background: none;
+            color: $primaryOrange;
+            cursor: default;
+        }
+        
     }
     .price-subtotal{
+        width: 15%;
+        text-align: end;
         font-weight: bold;
         color: $primaryOrange;
         cursor: default;
@@ -124,6 +138,12 @@
     li{
         display: flex;
         justify-content: space-between;
+    }
+    em{
+        display: flex;
+        align-items: center;
+        color: $secondary;
+        font-size: $font-s;
     }
     .bill-sale span{
         color: $secondary;
@@ -181,7 +201,6 @@
         }
         .price-subtotal{
             width: 100%;
-            text-align: end;
         }
     }
 }
@@ -197,9 +216,19 @@
         }
         .cart-content{
             width: calc(100% - 196px);
+            .title{
+                padding: 0;
+            }
         }
         .price{
             flex-wrap: wrap;
+        }
+    }
+}
+@media (max-width: 425px) {
+    .cart-item{
+        .cart-content .price-org{
+            margin-right: 8px;
         }
     }
 }

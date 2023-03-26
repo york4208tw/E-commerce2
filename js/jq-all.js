@@ -6,9 +6,4 @@ $(document).ready(function(){
         $( '.navbar-nav' ).toggleClass('nav-toggle');
     });
 
-    //light&dark
-    $('.darkbtn').click(function (e) {
-        $( this ).toggleClass('bx-sun');
-        $( 'body, .footer, .mailbar, #product-for-page-select' ).toggleClass('dark-mode');
-    });
 });

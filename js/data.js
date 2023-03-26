@@ -41,6 +41,7 @@ var products = [
         hot: true,
         price: 200,
         sale: .7,
+        stock: 3,
     }
     ,{
         id: 'B0001',
@@ -51,6 +52,7 @@ var products = [
         hot: false,
         price: 100,
         sale: 1,
+        stock: 5,
     }
     ,{
         id: 'B0002',
@@ -61,6 +63,7 @@ var products = [
         hot: true,
         price: 200,
         sale: .75,
+        stock: 8,
     }
     ,{
         id: 'A0003',
@@ -71,6 +74,7 @@ var products = [
         hot: true,
         price: 85,
         sale: 1,
+        stock: 3,
     }
     ,{
         id: 'A0004',
@@ -81,6 +85,7 @@ var products = [
         hot: false,
         price: 200,
         sale: 1,
+        stock: 20,
     }
     ,{
         id: 'B0003',
@@ -91,6 +96,7 @@ var products = [
         hot: false,
         price: 150,
         sale: .9,
+        stock: 15,
     }
     ,{
         id: 'B0004',
@@ -101,6 +107,7 @@ var products = [
         hot: true,
         price: 200,
         sale: 1,
+        stock: 20,
     }
     ,{
         id: 'A0005',
@@ -111,6 +118,7 @@ var products = [
         hot: true,
         price: 150,
         sale: .9,
+        stock: 17,
     }
     ,{
         id: 'A0006',
@@ -121,6 +129,7 @@ var products = [
         hot: true,
         price: 200,
         sale: .9,
+        stock: 29,
     }
     ,{
         id: 'B0005',
@@ -131,6 +140,7 @@ var products = [
         hot: true,
         price: 150,
         sale: .8,
+        stock: 15,
     }
     ,{
         id: 'B0006',
@@ -141,6 +151,7 @@ var products = [
         hot: true,
         price: 200,
         sale: .75,
+        stock: 10,
     }
     ,{
         id: 'A0007',
@@ -151,6 +162,7 @@ var products = [
         hot: true,
         price: 85,
         sale: 1,
+        stock: 50,
     }
     ,{
         id: 'A0008',
@@ -161,6 +173,7 @@ var products = [
         hot: true,
         price: 150,
         sale: 1,
+        stock: 15,
     }
     ,{
         id: 'B0007',
@@ -171,6 +184,7 @@ var products = [
         hot: false,
         price: 150,
         sale: .9,
+        stock: 3,
     }
     ,{
         id: 'B0008',
@@ -181,5 +195,6 @@ var products = [
         hot: true,
         price: 200,
         sale: 1,
+        stock: 20,
     }
 ];
