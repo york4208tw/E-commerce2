@@ -24,7 +24,53 @@ body{
         color: $grey;
         opacity: 1;
     }
-    // transition: all .5s ease;
+}
+.cat-meow{
+    content: '';
+    width: 378px;
+    height: 174px;
+    background-image: url(../pic/icon/cat-darkmode.png);
+    background-repeat: no-repeat;
+    position: fixed;
+    z-index: 3;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 200px);
+    transform-origin: bottom;
+    // animation-name: cat-darkmode;
+    animation-duration: 1.5s;
+    animation-iteration-count: 1;
+}
+.cat-meow span{
+    content: '';
+    width: 378px;
+    height: 174px;
+    background-image: url(../pic/icon/cat-meow.png);
+    background-repeat: no-repeat;
+    position: fixed;
+    z-index: 4;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 200px);
+    transform-origin: bottom;
+    // animation-name: cat-meow;
+    animation-duration: 1.5s;
+    animation-iteration-count: 1;
+}
+@keyframes cat-darkmode {
+    0%  {transform: matrix( .866, .5, -.5, .866, -189, 200 );}
+    25%  {transform: matrix( 1, 0, 0, 1, -189, 10 );}
+    50%  {transform: matrix( 1, 0, 0, 1, -189, 0 );}
+    75%  {transform: matrix( 1, 0, 0, 1, -189, 5 );}
+    100%  {transform: matrix( .866, .5, -.5, .866, -189, 200 );}
+}
+@keyframes cat-meow {
+    0%  {transform: matrix( 1, 0, 0, 1, -189, 20 ); opacity: 0; display: flex;}
+    20%  {transform: matrix( 1, 0, 0, 1, -189, 20 ); opacity: 0;}
+    35%  { opacity: 1;}
+    65%  {transform: matrix( 1, 0, 0, 1, -150, 5 ); opacity: 1;}
+    80%  {transform: matrix( 1, 0, 0, 1, -150, 20 ); opacity: 0;}
+    100%  {transform: matrix( 1, 0, 0, 1, -150, 20 ); opacity: 0; display: block;}
 }
 .navbar{
     .hambtn{

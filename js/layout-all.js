@@ -177,6 +177,7 @@ function btnAction(e){
             e.preventDefault();
             if ( userState.isDark == 0 ){
                 userState.isDark = 1;
+                catMeow();
             }else{
                 userState.isDark = 0;
             }
@@ -276,4 +277,24 @@ function darkModeControl(isLoad){
         $( 'body, .footer, .mailbar, #product-for-page-select' ).toggleClass('dark-mode');
         console.log(userState.isDark);
     }
+}
+
+//夜晚模式貓出沒
+var catImg = document.querySelector('.cat-meow');
+var meowImg = document.querySelector('.cat-meow span');
+var catAnim = true;
+function catMeow(){
+    var meowAudio = new Audio('../audio/cat-meow.mp3');
+    if( catAnim == true ){
+        meowAudio.play();
+        catImg.style.animationName = 'cat-darkmode';
+        meowImg.style.animationName = 'cat-meow';
+        catAnim = false;
+        setTimeout(catMeowReturn, 2000);
+    }
+}
+function catMeowReturn(){
+    catImg.style.animationName = '';
+    meowImg.style.animationName = '';
+    catAnim = true;
 }
