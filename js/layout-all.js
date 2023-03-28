@@ -1,7 +1,7 @@
 //讀取 購物車 & 我的最愛 localStorage 資訊
 var cartInfoArr = JSON.parse(localStorage.getItem('cartInfo')) || [] ;
 var faverArr = JSON.parse(localStorage.getItem('faverId')) || [] ;
-var userState =  JSON.parse(localStorage.getItem('userState')) || {isDark: 0} ;
+var userState =  JSON.parse(localStorage.getItem('userState')) || {isDark: 0, isReVisit: 0} ;
 localStorage.removeItem('cartId'); //刪除原有的 local data
 
 //DOM
@@ -269,6 +269,9 @@ function updateLocal(keyName,data){
 }
 
 function darkModeControl(isLoad){
+    if( userState.isReVisit == 1 ){
+        $( '.welcome' ).addClass('no-welcome');
+    }
     if ( isLoad == 'firstOpen' ){
         if ( userState.isDark == 1 ){
             $( '.darkbtn-li' ).toggleClass('bx-sun');
@@ -298,3 +301,4 @@ function catMeowReturn(){
     meowImg.style.animationName = '';
     catAnim = true;
 }
+

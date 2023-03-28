@@ -377,6 +377,44 @@ body ::-moz-placeholder { /* Firefox 19+ */
   background: #0c0702 !important;
 }
 
+.welcome {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 10;
+}
+.welcome .row {
+  height: 100%;
+}
+.welcome .welcomebar {
+  background-color: #fffbed;
+  border-radius: 30px;
+  padding: 16px 0;
+  text-align: center;
+}
+.welcome .welcomebar h2 {
+  font-weight: bold;
+  color: #dc8605;
+  font-size: 2.25rem;
+  margin-bottom: 16px;
+}
+.welcome .welcomebar p {
+  font-weight: bold;
+  color: #d02121;
+  font-size: 1.25rem;
+}
+.welcome .welcomebar li {
+  font-size: 1.25rem;
+  margin-bottom: 8px;
+  text-decoration: underline;
+}
+
+.no-welcome {
+  display: none;
+}
+
 .category-list {
   display: flex;
   flex-direction: column;

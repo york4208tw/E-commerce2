@@ -1,3 +1,39 @@
+.welcome{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 10;
+    .row{
+        height: 100%;
+    }
+    .welcomebar{
+        background-color: $lightBg;
+        border-radius: 30px;
+        padding: 16px 0;
+        text-align: center;
+        h2{
+            font-weight: bold;
+            color: $primaryOrange;
+            font-size: $font-xxl;
+            margin-bottom: 16px;
+        }
+        p{
+            font-weight: bold;
+            color: $secondary;
+            font-size: $font-m;
+        }
+        li{
+            font-size: $font-m;
+            margin-bottom: 8px;
+            text-decoration: underline;
+        }
+    }
+}
+.no-welcome{
+    display: none;
+}
 .category-list{
     display: flex;
     flex-direction: column;
