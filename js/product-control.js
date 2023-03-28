@@ -27,9 +27,7 @@ var showArr = [];
 var nowPage = 1;
 
 //預先 函數更新
-categoryCheck();
-updateNum();
-createProductList(allArr,1);
+init();
 
 //將商品依類別分類至各 Arr
 function categoryCheck(){
@@ -245,4 +243,11 @@ function pageAction(pageName){
 function changeProductForPage(e){
     productForPage = e.target.value;
     createProductList(showArr,1);
+}
+
+//預先 函數更新
+function init(){
+    categoryCheck();
+    updateNum();
+    createProductList(allArr,1);
 }

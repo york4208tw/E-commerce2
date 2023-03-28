@@ -1,4 +1,4 @@
-var members = [
+const members = [
     {
         name: 'York',
         email: 'aaa@google.com',
@@ -16,7 +16,7 @@ var members = [
     }
 ];
 
-var products = [
+const products = [
     {
         id: 'A0001',
         tag: 'dog',
@@ -198,3 +198,14 @@ var products = [
         stock: 20,
     }
 ];
+
+freezeMyData();
+
+function freezeMyData(){
+    for(let f=0; f<products.length; f++ ){
+        Object.freeze(products[f]);
+    }
+    for(let f=0; f<members.length; f++ ){
+        Object.freeze(members[f]);
+    }
+}
