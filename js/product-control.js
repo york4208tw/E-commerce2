@@ -9,6 +9,7 @@ var productList = document.querySelector('.product-list');
 var pageList = document.querySelector('.page-list .pagebtns');
 var cart = document.querySelectorAll('.cartbtn');
 var faver = document.querySelectorAll('.faver');
+var productPicDOM = ''; //產品圖片 .product-pic
 
 //監聽
 categoryList.addEventListener('click', btnAction, false);
@@ -25,6 +26,7 @@ var lowPriceArr = [];
 
 var showArr = [];
 var nowPage = 1;
+var newProductPic = [];
 
 //預先 函數更新
 init();
@@ -103,7 +105,7 @@ function createProductList(categoryArr,pageNum){
         if ( isSale == false ){
             str += ' faver-nosale';
         }
-        str += '" src="pic/icon/faver_big.png" alt="faver"><a href="'+ productHref +'"><img class="product-pic" src="'+ pic +'" alt="產品圖片"></a>';
+        str += '" src="pic/icon/faver_big.png" alt="faver"><a href="'+ productHref +'"><img data-proid="'+ categoryArr[i] +'" class="product-pic" src="pic/icon/loadingProd.png" alt="產品圖片"></a>';
         //輸出 文字資訊
         var name =  products[categoryArr[i]].name;
         var price =  products[categoryArr[i]].price;
@@ -142,6 +144,7 @@ function createProductList(categoryArr,pageNum){
     faver = document.querySelectorAll('.faver');
     categoryTitle.textContent = categoryTitleName ;
     categoryTitleNum.textContent = '共 '+ showArr.length +' 筆';
+    productPicToHD();
 }
 
 //計算類別頁數
@@ -245,9 +248,31 @@ function changeProductForPage(e){
     createProductList(showArr,1);
 }
 
+//產生 產品HD圖像
+function createProductHDPic(){
+    products.forEach(function(item,id){
+        newProductPic.push( new Image() );
+        newProductPic[id].src = item.picSrc;
+    });
+    let loadPic = 0;
+    newProductPic.forEach(function(item,id){
+        newProductPic[id].addEventListener('load',function(){loadPic ++;console.log(loadPic);});
+    });
+}
+
+//覆蓋低畫質圖像
+function productPicToHD(){
+    productPicDOM = document.querySelectorAll('.product-pic');
+    productPicDOM.forEach(function(item,id){
+        let productId = item.dataset.proid;
+        productPicDOM[id].src = newProductPic[productId].src;
+    })
+}
+
 //預先 函數更新
 function init(){
     categoryCheck();
     updateNum();
+    createProductHDPic();
     createProductList(allArr,1);
 }
