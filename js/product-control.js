@@ -27,6 +27,7 @@ var lowPriceArr = [];
 var showArr = [];
 var nowPage = 1;
 var newProductPic = [];
+var loadPic = 0; //已讀取完畢的商品圖
 
 //預先 函數更新
 init();
@@ -144,7 +145,7 @@ function createProductList(categoryArr,pageNum){
     faver = document.querySelectorAll('.faver');
     categoryTitle.textContent = categoryTitleName ;
     categoryTitleNum.textContent = '共 '+ showArr.length +' 筆';
-    productPicToHD();
+    productPicToHD(loadPic);
 }
 
 //計算類別頁數
@@ -252,27 +253,36 @@ function changeProductForPage(e){
 function createProductHDPic(){
     products.forEach(function(item,id){
         newProductPic.push( new Image() );
-        newProductPic[id].src = item.picSrc;
+        //newProductPic[id].src = item.picSrc;
+        newProductPic[id].src = 'https://york4208tw.github.io/E-commerce2/' + item.picSrc;
     });
-    let loadPic = 0;
     newProductPic.forEach(function(item,id){
-        newProductPic[id].addEventListener('load',function(){loadPic ++;console.log(loadPic);});
+        newProductPic[id].addEventListener('load',loadingCheck);
     });
+}
+function loadingCheck(){
+    loadPic++;
+    if(loadPic == 16){
+        productPicToHD();
+    }
 }
 
 //覆蓋低畫質圖像
 function productPicToHD(){
-    productPicDOM = document.querySelectorAll('.product-pic');
-    productPicDOM.forEach(function(item,id){
-        let productId = item.dataset.proid;
-        productPicDOM[id].src = newProductPic[productId].src;
-    })
+    if ( loadPic ==16 ){
+        productPicDOM = document.querySelectorAll('.product-pic');
+        productPicDOM.forEach(function(item,id){
+            let productId = item.dataset.proid;
+            productPicDOM[id].src = newProductPic[productId].src;
+        })
+    }
 }
 
 //預先 函數更新
 function init(){
     categoryCheck();
     updateNum();
-    createProductHDPic();
+    
     createProductList(allArr,1);
+    createProductHDPic();
 }
