@@ -4,16 +4,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>寵物之家</title>
+    <title>寵物之家2.0 - layout</title>
     <link rel="shortcut icon" href="pic/favicon.ico">
     <meta name='description' content='貓狗用品專賣店'>
 
-    <meta property="og:title" content="寵物之家">
+    <meta property="og:title" content="寵物之家2.0">
     <meta property="og:description" content="貓狗用品專賣店">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="https://york4208tw.github.io/E-commerce/pic/fb_preview.png">
+    <meta property="og:image" content="https://york4208tw.github.io/E-commerce2/pic/fb_preview.png">
 
     <link rel="stylesheet"href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
 
     <script src="js/jquery-3.6.3.min.js"></script>
@@ -23,7 +24,7 @@
 <body>
     <div class="container header">
         <div class="row navbar">
-            <div class="col-3 d-md-none hamBtn">
+            <div class="col-3 d-md-none hambtn">
                 <i class="bx bx-menu"></i>
             </div>
             <div class="col-4 col-lg-3 d-none d-md-block logo">
@@ -33,44 +34,150 @@
                 <a href="index.html"><img src="pic/logotype-sm-dark.png" alt="logo"></a>
             </div>
             <div class="col-3 d-md-none m-cart">
-                <a href="#"><img src="pic/icon/shopping_cart.png" alt="shopping_cart"><span>0</span></a>
+                <a href="#"><img class="cart-icon" src="pic/icon/shopping_cart.png" alt="shopping_cart"><span class="cart-num">0</span></a>
             </div>
-            <div class="col-12 col-md-5">
+            <div class="col-12 col-md-6">
                 <ul class="navbar-nav">
-                    <li class="navbar-item"><a href="index.html">首頁</a></li>
-                    <li class="navbar-item"><a href="#">狗狗商品</a></li>
-                    <li class="navbar-item"><a href="#">貓貓商品</a></li>
-                    <li class="navbar-item"><a href="#">登入</a></li>
-                    <li class="navbar-item d-none d-md-list-item"><a href="#"><img src="pic/icon/shopping_cart.png" alt="shopping_cart"><span>0</span></a></li>
+                    <li class="navbar-item"><a class="active" aria-current="page" href="index.html">首頁</a></li>
+                    <li class="navbar-item"><a class="notyet" href="#">貓狗商品</a></li>
+                    <li class="navbar-item"><a class="notyet" href="#">登入</a></li>
+                    <li class="navbar-item"><a class="web-info" href="#">網站資訊</a></li>
+                    <li class="navbar-item bx bx-moon darkbtn-li"><a id="darkbtn" href="#">&nbsp;&nbsp;</a></li>
+                    <li class="navbar-item d-none d-md-list-item"><a href="#"><img class="cart-icon" src="pic/icon/shopping_cart.png" alt="shopping_cart"><span class="cart-num">0</span></a></li>
                 </ul>
             </div>
         </div>
     </div>
 
-    <div class="container mt-8 mb-8">
-        <div class="row mt-8 mb-8">
-            <div class="col-6">建置中</div>
-            <div class="col-6">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illum, qui deleniti, possimus quisquam rerum odio velit, laudantium sit illo deserunt temporibus eum ullam delectus officia quae neque saepe culpa porro?
-            Nesciunt molestiae eius corporis placeat tempore modi facere pariatur repellendus quae autem, libero optio itaque qui quisquam cumque, saepe sunt consectetur ea neque cupiditate accusamus eaque? Soluta cumque vel nisi.
-            Numquam a, praesentium optio expedita nisi voluptatibus fuga. Similique quidem ad natus alias recusandae, suscipit perspiciatis nam, vitae assumenda error tempore dignissimos ab praesentium voluptas magnam quisquam optio sed possimus?
-            Illo, incidunt. Ullam iste aliquid excepturi assumenda ipsa labore recusandae illo minus doloremque? Nulla nemo, inventore eveniet odit ad vel commodi molestias minus nam suscipit. Ea officia error exercitationem at?
-            Excepturi eius distinctio adipisci, blanditiis veniam at tenetur amet eos quae, ut voluptates soluta ipsum placeat iste provident architecto dicta nam quibusdam sunt fugiat aut! Dolor at fuga sapiente dolorum.
-            Ab quibusdam fugiat placeat ea eum, libero dolor voluptas obcaecati dignissimos! Est consequatur iure atque, aliquam sit possimus aperiam eius dolore ducimus sint earum doloribus. Molestias et sequi autem exercitationem!
-            Eos, deleniti? Quidem sunt ab minus enim eveniet magnam molestiae corporis maxime! Aliquid alias nesciunt in optio architecto odit porro illo cumque vel neque ad blanditiis, itaque necessitatibus velit repellat.
-            Sunt nesciunt harum voluptate sint culpa illo autem amet enim maxime. Provident fugiat enim optio neque nulla saepe ducimus temporibus nostrum. Quia numquam impedit qui tempore voluptates voluptate dolorem eligendi!
-            Molestiae accusamus porro quisquam consectetur odio sint commodi? Perferendis provident, ducimus soluta accusantium dolorem est doloremque? Magni modi provident dolor cupiditate facilis rem, numquam ea exercitationem cumque explicabo iusto iure?
-            Architecto tempore atque, necessitatibus reprehenderit expedita accusantium cupiditate alias quia quaerat. Qui est nemo fuga magni ipsam alias reprehenderit nulla, hic nostrum archite</div>
+    <div class="d-flex">
+        <a class="totop" data-aos="fade-left" data-aos-offset="500" data-aos-once="false" href="#">
+            <i class="ri-arrow-up-s-line"></i>
+            <span>TOP</span>
+        </a>
+    </div>
+    <div class="cat-meow"><span></span></div>
+
+    <div class="container-fluid welcome">
+        <div class="row justify-content-center align-items-center">
+            <div class="col-10 col-md-6 welcomebar">
+                <h2>寵物之家歡迎您</h2>
+                <p class="danger">這是一個York製作的電商網站，<span class="d-lg-none"><br></span>內容皆為虛構商品！</p>
+                <ul>
+                    <li>本網站提供 <strong>首頁</strong> 及 <strong>購物車頁面</strong></li>
+                    <li>商品資料皆使用JavaScript所撰寫，歡迎到處點擊體驗</li>
+                </ul>
+                <button class="btn btn-primary welcomebtn">開始體驗</button>
+            </div>
         </div>
     </div>
 
+    <div class="container mb-3 mb-lg-6 js-BN-Layout banner">
+        <div class="row">
+            <div class="col-12">
+                <div id="carouselBanner" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselBanner" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carouselBanner" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#carouselBanner" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                    </div>
 
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="pic/banner1_layout_s.png" class="d-block w-100" alt="banner">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="pic/banner2_layout_s.png" class="d-block w-100" alt="banner2">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="pic/banner3_layout_s.png" class="d-block w-100" alt="banner3">
+                      </div>
+                    </div>
 
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselBanner" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselBanner" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 內文從此開始 -->
+    <div class="container mb-8 content">
+        <div class="row">
+            <div class="col-12 col-md-4 col-lg-5 pro-pic"><img class="w-100" src="pic/dog/p-1.png" alt="產品圖片"></div>
+            <div class="col-12 col-md-8 col-lg-7 pro-info-block">
+                <div class="pro-info">
+                    <div class="title">香噴噴狗糧</div>
+                    <div class="pro-num">
+                        <div class="star-num">評價：<span>5</span>星</div>
+                        <div class="soldout-num">已售出：<span>10</span>件</div>
+                    </div>
+                    <div class="pro-price">
+                        <div class="price-org is-sale">NT$ 150</div>
+                        <div class="price-sale">NT$ 90</div>
+                        <div class="price-salenum">9.5折</div>
+                    </div>
+                    <div class="cart-way">
+                        <div class="message">運費：100元  (整筆滿千免運)</div>
+                        <div class="cart-to">運送至：
+                            <select name="cart-to-city" id="cart-to-city">
+                                <option value="台北市">台北市</option>
+                                <option value="台北市">台中市</option>
+                            </select>
+                            <select name="cart-to-district" id="cart-to-district">
+                                <option value="中正區">中正區</option>
+                                <option value="萬華區">萬華區</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="cart-countbar">
+                    <div class="title">數量：</div>
+                    <ul class="cart-count-item">
+                        <li class="item-modifier-decrease-quantity"><a href="#">-</a></li>
+                        <li class="quantity"><a href="#">2</a></li>
+                        <li class="item-modifier-increase-quantity"><a href="#">+</a></li>
+                    </ul>
+                    <div class="stock">庫存：<span>35</span>件</div>
+                </div>
+                <div class="d-flex pro-btns">
+                    <div class="pro-cart-btn">加入購物車</div>
+                    <div class="pro-faver-btn"><i class='bx bxs-heart'></i></div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-4 format-block">
+                <div class="title">產品規格</div>
+                <ul class="format-list">
+                    <li class="format-item">品名：<span>好ㄘ狗糧</span></li>
+                    <li class="format-item">原料：<span>蛋白質、脂肪、碳水化合物、礦物質、維生素</span></li>
+                    <li class="format-item">重量：<span>10Kg</span></li>
+                    <li class="format-item">保存期間：<span>2年</span></li>
+                    <li class="format-item">注意事項：<span>避免陽光直射，遠離狗狗</span></li>
+                    <li class="format-item">廠商：<span>香噴噴企業股份有限公司</span></li>
+                    <li class="format-item">產地：<span>台灣</span></li>
+                </ul>
+            </div>
+            <div class="col-8">
+                <div class="pro-content">
+                    這款狗糧是由一群寵物專業人士與獸醫師共同研發的產品，採用優質肉類、蔬果及天然添加物製成，提供狗狗全面均衡的營養。每種原料都經過嚴格的篩選和檢驗，確保質量及安全性。此外，這款狗糧不含任何人工添加物、防腐劑及人工色素，讓您能安心地為您的寵物選擇最天然、最健康的食品。<br>這款狗糧不僅包含蛋白質和碳水化合物，還含有豐富的維生素和礦物質，如維生素A、C、E、B群、鈣、磷、鐵等，可以有效地提高狗狗的免疫力和維持身體健康。此外，它還具有美毛和抗氧化的效果，有助於狗狗保持美麗的外表和健康的內在。<br>這款狗糧適用於所有年齡段和品種的狗狗，無論是幼犬還是老犬，都能夠從中受益。我們相信，只要給予您的寵物優質的食品，就能讓他們擁有更長久和幸福的生命。因此，我們將不斷地提高產品質量和創新，為您的狗狗帶來最好的飲食體驗。
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 內文結束 -->
     <div class="contactbar">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-2 d-none d-sm-flex link">
-                    <img src="pic/icon/ic-line@-light.png" alt="line">
-                    <img src="pic/icon/ic-facebook-light.png" alt="facebook">
+                    <img class="linebtn" src="pic/icon/ic-line@-light.png" alt="line">
+                    <img class="fbbtn" src="pic/icon/ic-facebook-light.png" alt="facebook">
                 </div>
                 <div class="col-11 col-sm-10 col-md-5 title">歡迎訂閱寵物之家！<span>讓我們一起照顧可愛的毛小孩&nbsp;&nbsp;</span></div>
                 <div class="col-12 col-md-5 mailbar">
@@ -100,7 +207,8 @@
         </div>
     </div>
     <script src="js/data.js"></script>
-    <Script src="js/product-all.js"></Script>
+    <Script src="js/layout-all.js"></Script>
+    <Script src="js/bannerToHD.js"></Script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
 </body>
 </html>
