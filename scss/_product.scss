@@ -31,8 +31,12 @@
         align-items: center;
         font-weight: bold;
         .price-org{
-            font-size: $font-m;
+            font-size: $font-l;
             margin-right: 16px;
+            color: $primaryOrange;
+        }
+        .is-sale{
+            font-size: $font-m;
             color: $grey;
             text-decoration: line-through;
         }
@@ -76,7 +80,9 @@
             background-color: $lightBg;
             border: 2px $primaryOrange solid;
             cursor: pointer;
-
+        }
+        #cart-to-district{
+            width: 95px;
         }
     }
 }
@@ -111,31 +117,73 @@
             background-color: $lightOrange;
         }
     }
+    .pro-quantity{
+        cursor: default;
+    }
 }
-.pro-cart-btn, .pro-faver-btn{
-    font-size: $font-l;
+.pro-btns{
+    .pro-cart-btn, .pro-faver-btn{
+        font-size: $font-l;
+        font-weight: bold;
+        width: 194px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 16px 0;
+        background-color: $primaryOrange;
+        color: $lightBg;
+        transition: all .2s ease;
+        cursor: pointer;
+        &:hover{
+            transform: scale(1.05);
+        }
+    }
+    .cart-select{
+        background-color: $secondary;
+    }
+    .pro-faver-btn{
+        width: 68px ;
+        background-color: rgb(255, 178, 178);
+        margin-left: 16px;
+        i{
+            pointer-events: none;
+        }
+    }
+    .faver-select{
+        background-color: rgb(255, 98, 98);
+    }
+}
+.adbar{
+    background-color: $lightOrange;
+    border: 5px $primaryOrange solid;
+    border-style: dotted;
+    height: 100%;
+    font-size: $font-xl;
+    color: $primaryOrange;
     font-weight: bold;
-    width: 194px;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 16px 0;
-    background-color: $primaryOrange;
-    color: $lightBg;
-    transition: all .2s ease;
-    cursor: pointer;
-    &:hover{
-        transform: scale(1.05);
+}
+.format-block, .pro-content-block{
+    color: $darkOrange;
+    .title{
+        font-size: $font-l;
+        background-color: $primaryOrange;
+        color: $lightBg;
+        font-weight: bold;
+        padding: 8px 16px;
+        border-top-right-radius: 30px;
+        margin-bottom: 16px;
     }
 }
-.pro-faver-btn{
-    width: 68px ;
-    background-color: rgb(255, 178, 178);
-    margin-left: 16px;
+.pro-content-block{
+    .pro-content{
+        text-indent: 32px;
+        margin-bottom: 8px;
+    }
+
 }
-
-
-
 
 
 @media (max-width: 1200px) {
@@ -163,6 +211,11 @@
             width: auto;
             margin-left: 16px;
         }
+    }
+    .adbar{
+        height: auto;
+        margin: 16px 0 0 0;
+        padding: 30px;
     }
 }
 @media (max-width: 767px) {

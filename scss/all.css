@@ -896,8 +896,12 @@ body ::-moz-placeholder { /* Firefox 19+ */
   font-weight: bold;
 }
 .pro-info .pro-price .price-org {
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   margin-right: 16px;
+  color: #dc8605;
+}
+.pro-info .pro-price .is-sale {
+  font-size: 1.25rem;
   color: #b6ad9d;
   text-decoration: line-through;
 }
@@ -942,6 +946,9 @@ body ::-moz-placeholder { /* Firefox 19+ */
   border: 2px #dc8605 solid;
   cursor: pointer;
 }
+.pro-info .cart-way #cart-to-district {
+  width: 95px;
+}
 
 .cart-countbar {
   display: flex;
@@ -976,8 +983,11 @@ body ::-moz-placeholder { /* Firefox 19+ */
 .cart-count-item li a:hover {
   background-color: #ffe8c5;
 }
+.cart-count-item .pro-quantity {
+  cursor: default;
+}
 
-.pro-cart-btn, .pro-faver-btn {
+.pro-btns .pro-cart-btn, .pro-btns .pro-faver-btn {
   font-size: 1.5rem;
   font-weight: bold;
   width: 194px;
@@ -990,14 +1000,53 @@ body ::-moz-placeholder { /* Firefox 19+ */
   transition: all 0.2s ease;
   cursor: pointer;
 }
-.pro-cart-btn:hover, .pro-faver-btn:hover {
+.pro-btns .pro-cart-btn:hover, .pro-btns .pro-faver-btn:hover {
   transform: scale(1.05);
 }
-
-.pro-faver-btn {
+.pro-btns .cart-select {
+  background-color: #d02121;
+}
+.pro-btns .pro-faver-btn {
   width: 68px;
   background-color: rgb(255, 178, 178);
   margin-left: 16px;
+}
+.pro-btns .pro-faver-btn i {
+  pointer-events: none;
+}
+.pro-btns .faver-select {
+  background-color: rgb(255, 98, 98);
+}
+
+.adbar {
+  background-color: #ffe8c5;
+  border: 5px #dc8605 solid;
+  border-style: dotted;
+  height: 100%;
+  font-size: 2rem;
+  color: #dc8605;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.format-block, .pro-content-block {
+  color: #734808;
+}
+.format-block .title, .pro-content-block .title {
+  font-size: 1.5rem;
+  background-color: #dc8605;
+  color: #fffbed;
+  font-weight: bold;
+  padding: 8px 16px;
+  border-top-right-radius: 30px;
+  margin-bottom: 16px;
+}
+
+.pro-content-block .pro-content {
+  text-indent: 32px;
+  margin-bottom: 8px;
 }
 
 @media (max-width: 1200px) {
@@ -1021,6 +1070,11 @@ body ::-moz-placeholder { /* Firefox 19+ */
   .cart-countbar .stock {
     width: auto;
     margin-left: 16px;
+  }
+  .adbar {
+    height: auto;
+    margin: 16px 0 0 0;
+    padding: 30px;
   }
 }
 @media (max-width: 767px) {

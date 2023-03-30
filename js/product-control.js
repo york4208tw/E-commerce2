@@ -110,7 +110,7 @@ function createProductList(categoryArr,pageNum){
         //輸出 文字資訊
         var name =  products[categoryArr[i]].name;
         var price =  products[categoryArr[i]].price;
-        str += '<div class="product-info"><a class="name" href="'+ productHref +'">'+ name +'</a><div class="price">NT$ '+ price +'</div></div><a href="#"><div id="';
+        str += '<div class="product-info"><a data-proid="'+ categoryArr[i] +'" class="name" href="'+ productHref +'">'+ name +'</a><div class="price">NT$ '+ price +'</div></div><a href="#"><div id="';
         
         //輸出 購物車資訊
         var isCart = false;

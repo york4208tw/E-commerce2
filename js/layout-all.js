@@ -1,7 +1,7 @@
 //讀取 購物車 & 我的最愛 localStorage 資訊
 var cartInfoArr = JSON.parse(localStorage.getItem('cartInfo')) || [] ;
 var faverArr = JSON.parse(localStorage.getItem('faverId')) || [] ;
-var userState =  JSON.parse(localStorage.getItem('userState')) || {isDark: 0, isReVisit: 0} ;
+var userStateArr =  JSON.parse(localStorage.getItem('userState')) || {isDark: 0, isReVisit: 0} ;
 localStorage.removeItem('cartId'); //刪除原有的 local data
 
 //DOM
@@ -116,6 +116,15 @@ function btnAction(e){
         //Product清單
         case 'product-pic':
             e.preventDefault();
+            userStateArr.focusProId = parseInt(e.target.dataset.proid);
+            updateLocal('userState',userStateArr);
+            //window.location.pathname = 'product.html';
+            break;
+        case 'name':
+            e.preventDefault();
+            userStateArr.focusProId = parseInt(e.target.dataset.proid);
+            updateLocal('userState',userStateArr);
+            //window.location.pathname = 'product.html';
             break;
         case 'faver':
             faverCheck(e.target.dataset.proid, e.target.dataset.showid);
@@ -177,17 +186,17 @@ function btnAction(e){
     switch (e.target.id){
         case 'darkbtn':
             e.preventDefault();
-            if ( userState.isDark == 0 ){
-                userState.isDark = 1;
+            if ( userStateArr.isDark == 0 ){
+                userStateArr.isDark = 1;
                 catMeow();
             }else{
-                userState.isDark = 0;
+                userStateArr.isDark = 0;
             }
             var body = document.body;
             body.style.transition = 'all .2s ease';
             darkModeControl();
-            var str = JSON.stringify(userState);
-            updateLocal('userState',str);
+            var str = JSON.stringify(userStateArr);
+            updateLocal('userStateArr',str);
     }
 }
 
@@ -260,27 +269,29 @@ function updateLocal(keyName,data){
         localStorage.setItem(keyName,data);
     }
     else if( Array.isArray(data) == true ){
-        var str = JSON.stringify(data);
+        let str = JSON.stringify(data);
         localStorage.setItem(keyName,str);
-    }
-    else{
+    }else if( typeof(data) == 'object' ){
+        let str = JSON.stringify(data);
+        localStorage.setItem(keyName,str);
+    }else{
         console.log('更新localStorge失敗');
     }
 }
 
 function darkModeControl(isLoad){
-    if( userState.isReVisit == 1 ){
+    if( userStateArr.isReVisit == 1 ){
         $( '.welcome' ).addClass('no-welcome');
     }
     if ( isLoad == 'firstOpen' ){
-        if ( userState.isDark == 1 ){
+        if ( userStateArr.isDark == 1 ){
             $( '.darkbtn-li' ).toggleClass('bx-sun');
             $( 'body, .footer, .mailbar, #product-for-page-select' ).toggleClass('dark-mode');
         }
     }else{
         $( '.darkbtn-li' ).toggleClass('bx-sun');
         $( 'body, .footer, .mailbar, #product-for-page-select' ).toggleClass('dark-mode');
-        console.log(userState.isDark);
+        console.log(userStateArr.isDark);
     }
 }
 

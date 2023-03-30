@@ -8,8 +8,8 @@ $(document).ready(function(){
 
     $('.welcomebtn').click(function (e) { 
         $( '.welcome' ).toggleClass('no-welcome');
-            userState.isReVisit = 1;
-            let newStr = JSON.stringify(userState);
+            userStateArr.isReVisit = 1;
+            let newStr = JSON.stringify(userStateArr);
             localStorage.setItem('userState',newStr);   
         
     });
