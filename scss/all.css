@@ -1110,7 +1110,7 @@ body ::-moz-placeholder { /* Firefox 19+ */
     box-shadow: 0, 0, 10px #dc8605;
   }
   .pro-pic img {
-    margin-top: -100px;
+    margin-top: -50px;
   }
   .pro-info .pro-num {
     margin-bottom: 0;
