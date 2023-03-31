@@ -1,5 +1,6 @@
 // DOM
 var citySelectDOM = document.querySelector('#cart-to-city');
+var districtSelectDOM = document.querySelector('#cart-to-district');
 var cityOptionDOM = document.querySelectorAll('#cart-to-city option');
 var cartQuantityDOM = document.querySelector('.cart-count-item');
 var proBtnDOM = document.querySelector('.pro-btns');
@@ -13,6 +14,10 @@ var proInFaver = false;
 // 監聽
 citySelectDOM.addEventListener('change', function(e){
     createDistrictSelect(e.target.value);
+});
+districtSelectDOM.addEventListener('change', function(e){
+    userStateArr.district = e.target.value;
+    updateLocal('userState',userStateArr)
 });
 cartQuantityDOM.addEventListener('click',function(e){
     e.preventDefault();
@@ -60,7 +65,11 @@ function productInit(){
         printProductInfo(0);
     }
     createCitySelect();
-    createDistrictSelect('臺中市');
+    if ( userStateArr.city !== undefined ){
+        createDistrictSelect(userStateArr.city);
+    }else{
+        createDistrictSelect('臺中市');
+    }
     proPageCartCheck();
 }
 
@@ -187,11 +196,15 @@ function createCitySelect(){
     });
 
     //產出縣市選單
+    let myCity = userStateArr.city;
+    if ( myCity == undefined ){
+        myCity = '臺中市';
+    }
     cityAry.forEach(function(item,id){
         let cityOptionItem = document.createElement('option');
         cityOptionItem.value = item;
         cityOptionItem.textContent = item;
-        if (item == '臺中市'){
+        if (item == myCity){
             cityOptionItem.selected = true;
         }
         citySelectDOM.appendChild(cityOptionItem);
@@ -200,6 +213,7 @@ function createCitySelect(){
 
 // 產出 區域清單 並輸出
 function createDistrictSelect( thisCity ){
+    let myDistrict = userStateArr.district;
     let districtSelectDOM = document.querySelector('#cart-to-district');
     districtSelectDOM.innerHTML = '';
     countryAry.forEach(function(item,id){
@@ -207,9 +221,14 @@ function createDistrictSelect( thisCity ){
             let districtOptionItem = document.createElement('option');
             districtOptionItem.value = item.name;
             districtOptionItem.textContent = item.name;
+            if ( myDistrict == item.name ){
+                districtOptionItem.selected = true;
+            }
             districtSelectDOM.appendChild(districtOptionItem);
         }
     })
+    userStateArr.city = thisCity;
+    updateLocal('userState',userStateArr);
 }
 
 // 初始檢查商品是否在 購物車 最愛內
