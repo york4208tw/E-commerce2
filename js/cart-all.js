@@ -103,7 +103,7 @@ function cartQuantityCheck(){
 //增減購物車的 購買數量
 function cartQuantityCount(proId,showId,action){
 
-    var cartQuantityNum = cartInfoArr[showId].quantity; //購買數量
+    var cartQuantityNum = parseInt(cartInfoArr[showId].quantity); //購買數量
     if( action == 'decrease' ){ //減少
 
         if ( cartQuantityNum == 1 ){

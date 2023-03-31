@@ -18,12 +18,10 @@ cartQuantityDOM.addEventListener('click',function(e){
     e.preventDefault();
     switch (e.target.className){
         case 'pro-decreasebtn':
-            proPageCartCheck('decreasebtn');
-            console.log('decreasebtn');
+            proQuantityCount('decreasebtn');
             break;
         case 'pro-increasebtn':
-            proPageCartCheck('increasebtn');
-            console.log('increasebtn');
+            proQuantityCount('increasebtn');
             break;
     }
 })
@@ -32,10 +30,12 @@ proBtnDOM.addEventListener('click',function(e){
         case 'pro-cart-btn':
             proCartAction();
             $('.pro-cart-btn').addClass('cart-select');
+            updateCartNum();
             break;
         case 'pro-cart-btn cart-select':
             proCartAction();
             $('.pro-cart-btn').removeClass('cart-select');
+            updateCartNum();
             break;
         case 'pro-faver-btn':
             proFaverAction();
@@ -61,6 +61,7 @@ function productInit(){
     }
     createCitySelect();
     createDistrictSelect('臺中市');
+    proPageCartCheck();
 }
 
 // 購物車Arr的增減
@@ -102,6 +103,34 @@ function proFaverAction(){
         faverArr.push(userStateArr.focusProId);
         updateLocal('faverId',faverArr);
         alert('加到我的最愛');
+    }
+}
+
+// 數量控制
+function proQuantityCount(action){
+    let QuantityNum = parseInt(document.querySelector('.cart-count-item .pro-quantity').textContent);
+    if ( action == 'decreasebtn' ){
+        if ( QuantityNum !== 1 ){
+            QuantityNum -= 1;
+            document.querySelector('.cart-count-item .pro-quantity').textContent = QuantityNum;
+        }
+    }else if ( action == 'increasebtn' ){
+        if ( QuantityNum == products[userStateArr.focusProId].stock ){
+            alert('抱歉， '+ products[userStateArr.focusProId].name + ' 庫存只有 '+ products[userStateArr.focusProId].stock + ' 個');
+        }else if( QuantityNum < products[userStateArr.focusProId].stock ){
+            QuantityNum += 1;
+            document.querySelector('.cart-count-item .pro-quantity').textContent = QuantityNum;
+        }
+    }
+    if ( proInCart == true ){
+        let proCartId = '';
+        cartInfoArr.forEach(function(item,id){
+            if ( item.id == userStateArr.focusProId ){
+                proCartId = id;
+            }
+        })
+        cartInfoArr[proCartId].quantity = QuantityNum;
+        updateLocal('cartInfo',cartInfoArr);
     }
 }
 
