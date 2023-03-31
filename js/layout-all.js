@@ -118,13 +118,13 @@ function btnAction(e){
             e.preventDefault();
             userStateArr.focusProId = parseInt(e.target.dataset.proid);
             updateLocal('userState',userStateArr);
-            //window.location.pathname = 'product.html';
+            window.location.pathname = 'product.html';
             break;
         case 'name':
             e.preventDefault();
             userStateArr.focusProId = parseInt(e.target.dataset.proid);
             updateLocal('userState',userStateArr);
-            //window.location.pathname = 'product.html';
+            window.location.pathname = 'product.html';
             break;
         case 'faver':
             faverCheck(e.target.dataset.proid, e.target.dataset.showid);
