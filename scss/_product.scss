@@ -78,7 +78,9 @@
         select{
             width: 80px;
             background-color: $lightBg;
+            color: $primaryOrange;
             border: 2px $primaryOrange solid;
+            transition: all .2s ease;
             cursor: pointer;
         }
         #cart-to-district{
@@ -119,6 +121,10 @@
     }
     .pro-quantity{
         cursor: default;
+        &:hover{
+            background-color: transparent;
+            color: $primaryOrange;
+        }
     }
 }
 .pro-btns{
@@ -155,15 +161,23 @@
 }
 .adbar{
     background-color: $lightOrange;
-    border: 5px $primaryOrange solid;
-    border-style: dotted;
     height: 100%;
-    font-size: $font-xl;
-    color: $primaryOrange;
-    font-weight: bold;
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
+    position: relative;
+    &::after{
+        content: 'Ad';
+        background-color: $primaryOrange;
+        color: $lightBg;
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 0 8px;
+        font-size: $font-m;
+        pointer-events: none;
+    }
 }
 .format-block, .pro-content-block{
     color: $darkOrange;
@@ -175,6 +189,10 @@
         padding: 8px 16px;
         border-top-right-radius: 30px;
         margin-bottom: 16px;
+        transition: all .2s ease;
+    }
+    .dark-title{
+        background-color: $darkOrange;
     }
 }
 .pro-content-block{
@@ -215,7 +233,10 @@
     .adbar{
         height: auto;
         margin: 16px 0 0 0;
-        padding: 30px;
+        &::after{
+            top: 100%;
+            transform: translateY(-100%);
+        }
     }
 }
 @media (max-width: 767px) {

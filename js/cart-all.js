@@ -38,7 +38,7 @@ function createCartList(){
                     </li>`;
     }
     for (i=0; i<cartInfoArr.length; i++){
-        cartStr += '<li class="cart-item"><div class="cart-pic"><a href="index.html"><img data-proid="'+ cartInfoArr[i].id +'" src="'+ products[cartInfoArr[i].id].picSrc +'" alt="產品圖片"></a></div>';
+        cartStr += '<li class="cart-item"><div class="cart-pic"><a href="#"><img class="cart-img" data-proid="'+ cartInfoArr[i].id +'" src="'+ products[cartInfoArr[i].id].picSrc +'" alt="產品圖片"></a></div>';
 
         cartStr += '<div class="cart-content"><div class="cart-info"><div class="title">'+ products[cartInfoArr[i].id].name + '</div><div class="price"><div class="price-org';
 

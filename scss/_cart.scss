@@ -227,8 +227,20 @@
 }
 @media (max-width: 425px) {
     .cart-item{
+        .cart-pic{
+            margin-right: 8px;
+        }
+        .cart-content{
+            width: calc(100% - 188px);
+        }
         .cart-content .price-org{
             margin-right: 8px;
+        }
+        .cart-countbar{
+            li{
+                width: 40px;
+                height: 40px;
+            }
         }
     }
 }

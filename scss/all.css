@@ -943,7 +943,9 @@ body ::-moz-placeholder { /* Firefox 19+ */
 .pro-info .cart-way select {
   width: 80px;
   background-color: #fffbed;
+  color: #dc8605;
   border: 2px #dc8605 solid;
+  transition: all 0.2s ease;
   cursor: pointer;
 }
 .pro-info .cart-way #cart-to-district {
@@ -986,6 +988,10 @@ body ::-moz-placeholder { /* Firefox 19+ */
 .cart-count-item .pro-quantity {
   cursor: default;
 }
+.cart-count-item .pro-quantity:hover {
+  background-color: transparent;
+  color: #dc8605;
+}
 
 .pro-btns .pro-cart-btn, .pro-btns .pro-faver-btn {
   font-size: 1.5rem;
@@ -1020,15 +1026,23 @@ body ::-moz-placeholder { /* Firefox 19+ */
 
 .adbar {
   background-color: #ffe8c5;
-  border: 5px #dc8605 solid;
-  border-style: dotted;
   height: 100%;
-  font-size: 2rem;
-  color: #dc8605;
-  font-weight: bold;
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
+  position: relative;
+}
+.adbar::after {
+  content: "Ad";
+  background-color: #dc8605;
+  color: #fffbed;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0 8px;
+  font-size: 1.25rem;
+  pointer-events: none;
 }
 
 .format-block, .pro-content-block {
@@ -1042,6 +1056,10 @@ body ::-moz-placeholder { /* Firefox 19+ */
   padding: 8px 16px;
   border-top-right-radius: 30px;
   margin-bottom: 16px;
+  transition: all 0.2s ease;
+}
+.format-block .dark-title, .pro-content-block .dark-title {
+  background-color: #734808;
 }
 
 .pro-content-block .pro-content {
@@ -1074,7 +1092,10 @@ body ::-moz-placeholder { /* Firefox 19+ */
   .adbar {
     height: auto;
     margin: 16px 0 0 0;
-    padding: 30px;
+  }
+  .adbar::after {
+    top: 100%;
+    transform: translateY(-100%);
   }
 }
 @media (max-width: 767px) {
@@ -1333,8 +1354,18 @@ body ::-moz-placeholder { /* Firefox 19+ */
   }
 }
 @media (max-width: 425px) {
+  .cart-item .cart-pic {
+    margin-right: 8px;
+  }
+  .cart-item .cart-content {
+    width: calc(100% - 188px);
+  }
   .cart-item .cart-content .price-org {
     margin-right: 8px;
+  }
+  .cart-item .cart-countbar li {
+    width: 40px;
+    height: 40px;
   }
 }
 /*

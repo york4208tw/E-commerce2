@@ -118,13 +118,13 @@ function btnAction(e){
             e.preventDefault();
             userStateArr.focusProId = parseInt(e.target.dataset.proid);
             updateLocal('userState',userStateArr);
-            window.location.pathname = 'product.html';
+            window.location.pathname = '/E-commerce2/product.html';
             break;
         case 'name':
             e.preventDefault();
             userStateArr.focusProId = parseInt(e.target.dataset.proid);
             updateLocal('userState',userStateArr);
-            window.location.pathname = 'product.html';
+            window.location.pathname = '/E-commerce2/product.html';
             break;
         case 'faver':
             faverCheck(e.target.dataset.proid, e.target.dataset.showid);
@@ -153,6 +153,12 @@ function btnAction(e){
             break;
 
         //購物車頁面
+        case 'cart-img':
+            e.preventDefault();
+            userStateArr.focusProId = parseInt(e.target.dataset.proid);
+            updateLocal('userState',userStateArr);
+            window.location.pathname = '/E-commerce2/product.html';
+            break;
         case 'item-modifier-decrease-quantity':
             e.preventDefault();
             cartQuantityCount(e.target.dataset.proid, e.target.dataset.showid, 'decrease');
@@ -180,8 +186,8 @@ function btnAction(e){
 
         default:
             //console.log(e.target.innerHTML);
-            //console.log(e.target.className);
-            // console.log(e);
+            // console.log(e.target.nodeName);
+            //console.log(e);
     }
     switch (e.target.id){
         case 'darkbtn':
@@ -196,7 +202,7 @@ function btnAction(e){
             body.style.transition = 'all .2s ease';
             darkModeControl();
             var str = JSON.stringify(userStateArr);
-            updateLocal('userStateArr',str);
+            updateLocal('userState',str);
     }
 }
 
@@ -286,12 +292,13 @@ function darkModeControl(isLoad){
     if ( isLoad == 'firstOpen' ){
         if ( userStateArr.isDark == 1 ){
             $( '.darkbtn-li' ).toggleClass('bx-sun');
-            $( 'body, .footer, .mailbar, #product-for-page-select' ).toggleClass('dark-mode');
+            $( 'body, .footer, .mailbar, #product-for-page-select, .cart-to select' ).toggleClass('dark-mode');
+            $( '.format-block .title, .pro-content-block .title' ).toggleClass('dark-title');
         }
     }else{
         $( '.darkbtn-li' ).toggleClass('bx-sun');
-        $( 'body, .footer, .mailbar, #product-for-page-select' ).toggleClass('dark-mode');
-        console.log(userStateArr.isDark);
+        $( 'body, .footer, .mailbar, #product-for-page-select, .cart-to select' ).toggleClass('dark-mode');
+        $( '.format-block .title, .pro-content-block .title' ).toggleClass('dark-title');
     }
 }
 
