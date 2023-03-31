@@ -294,8 +294,11 @@ body{
 
 
 @media (max-width: 768px) {
-    .navbar{
+    .navbar .navbar-item{
         .active::after{
+            bottom: 0px;
+        }
+        & a::after{
             bottom: 0px;
         }
     }
